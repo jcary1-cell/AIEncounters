@@ -2641,16 +2641,6 @@ main.page{overflow-x:clip}
     <div class="loom-tip" id="loom-tip"></div>
   </div>
 
-  <section class="review" id="review" hidden aria-labelledby="review-h">
-    <div class="review-head"><h3 id="review-h">Review queue</h3><span class="review-badge" id="review-badge">0</span><p class="review-note" id="review-note">Only you and your Editors can see this. Students see their own submissions, and everyone sees approved stories.</p></div>
-    <div class="paths" role="tablist" aria-label="Review sections" id="review-tabs">
-      <button class="chip" type="button" aria-pressed="true" data-rt="pending">Waiting</button>
-      <button class="chip" type="button" aria-pressed="false" data-rt="attention">Needs attention</button>
-      <button class="chip" type="button" aria-pressed="false" data-rt="decided">Decided</button>
-    </div>
-    <div class="review-list" id="review-list"></div>
-  </section>
-
   <div class="living-grid">
     <div class="compose">
       <form class="worksheet" id="story-form" novalidate>
@@ -2717,7 +2707,7 @@ main.page{overflow-x:clip}
         <label class="sr" for="fl-ch">Chapter</label><select id="fl-ch"><option value="">All chapters</option></select>
         <label class="sr" for="fl-course">Course</label><select id="fl-course"><option value="">All courses</option><option>HCAI 1100</option><option>HCAI 2100</option><option>HCAI 2101</option><option>IDST 3100</option><option>HCAI 3111</option><option>HCAI 3112</option><option>HCAI 4600</option><option>AI Fundamentals minor elective</option><option>Another course</option></select>
         <label class="sr" for="fl-dir">Direction</label><select id="fl-dir"><option value="">Closer &amp; away</option><option value="closer">Closer</option><option value="away">Away</option><option value="unsure">Not sure yet</option></select>
-        <label class="sr" for="fl-sort">Sort</label><select id="fl-sort"><option value="new">Newest</option><option value="res">Most "me too"</option></select>
+        <label class="sr" for="fl-sort">Sort</label><select id="fl-sort"><option value="new">Newest</option><option value="old">Oldest</option></select>
         <button class="chip" type="button" id="fl-book" aria-pressed="true">Book's 12</button>
       </div>
       <div class="stories" id="stories"></div>
@@ -3280,14 +3270,12 @@ if("fonts" in document)document.fonts.ready.then(()=>{buildRail();onScroll()});
 
 (function(){
 "use strict";
-const {store,$,$$,esc,toast,dictate}=window.AIE;
+const {$,$$,esc,dictate}=window.AIE;
 const reduce=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;
 const CH_TITLES=["The Ghost in the Mill","The Anatomy of Meaningful Work","The Architecture of Friction","The Sparring Partner","Unmasking the Oracle","Reading the Hidden Code","The Sovereign Voice","The Architecture of the Handshake","The Human Bridge","Standing in the Arena","Leading Through the Fog","The Gathering Ground"];
 const ACT_OF=[1,1,1,2,2,2,3,3,4,4,5,5];
 const WHO=["Marguerite & Dev","Jordan","Sam","Aisha","Dr. Okafor & Lena","Marcus, Priya & Teresa","Rosa","An English department","Eli","Nadia","A provost","Three professors"];
 const CLICHES=/\b(in today['’]s fast-paced world|passionate about|proven track record|leverag(e|ing)|delv(e|ing)|driving impact|cross-functional collaboration)\b/gi;
-const PUBLIC=["title","story","question","chose","dir","chs","course","major","name","createdAt"];
-const pick=(o,ks)=>{const r={};ks.forEach(k=>{if(o[k]!==undefined)r[k]=o[k]});return r};
 const newId=()=>Date.now().toString(36)+Math.random().toString(36).slice(2,7);
 
 /* founding threads: the book's own twelve Encounters, read from the page */
@@ -3295,141 +3283,94 @@ const BOOK=$$(".encounter[data-ch]").map(enc=>{const ch=+enc.dataset.ch;const ps
   return {id:"book-"+ch,book:true,title:CH_TITLES[ch-1],name:WHO[ch-1],story:ps.join("\n\n"),question:th?th.textContent:"",chs:[ch],dir:"book",createdAt:0}});
 
 /* =====================================================================
-   Storage. Published as a claude.ai artifact (db capability):
-     stories/<id>                approved, public          read: view  write: admin
-     submissions/<uid>           {items:[…]} one per student  read/write: that student + admins
-     res/<uid>                   {ids:[…]} "me too"s        read: view  write: that viewer
-     flags/<uid>                 {ids:[…]} reader flags     read: admin write: that viewer
-   Anywhere else: a single-browser preview where you play both roles.
+   Storage: a Google Form + its response spreadsheet.
+   - Students submit from this page's form, which posts to the Google Form.
+   - An instructor approves a story by typing "yes" in the sheet's Approved column.
+   - The sheet's "Approved" tab (only approved rows) is published as CSV, and this page reads it.
+   Don't add or reorder form questions without updating the entry IDs below.
    ===================================================================== */
-const LKEY="aie:collection";
-const Store={
-  mode:"local",db:null,uid:null,isMod:false,canWrite:true,listeners:[],
-  approved:[],mine:[],subs:{},res:{},flags:{},
-  async init(){
-    const inArtifact=window.claude&&typeof window.claude.use==="function";
-    const isLocal=/^(localhost|127\.0\.0\.1|\[::1\]|)$/.test(location.hostname)&&!/[?&]bridge\b/.test(location.search);
-    if(!inArtifact&&!isLocal){this.mode="bridge";this.isMod=false;this.uid=null;bridge();setState("bridge");this.emit();return}
-    this.loadLocal();this.emit();
-    if(!inArtifact){setState("local");return}
-    setState("connecting");
-    let db=null;try{db=await window.claude.use("db")}catch(e){}
-    if(!db){setState("local");return}
-    this.db=db;this.mode="db";this.isMod=false;this.approved=[];this.mine=[];this.subs={};this.res={};this.flags={};
-    let user=null;try{user=await window.claude.use("user")}catch(e){}
-    if(user){try{this.uid=await user.id()}catch(e){}try{this.isMod=!!((await user.isOwner())||(await user.canEdit()))}catch(e){}try{if((await user.can("data.write"))===false)this.canWrite=false}catch(e){}}
-    const timer=setTimeout(()=>setState("slow"),10000);
-    const fail=e=>{clearTimeout(timer);setState("error",e&&e.code)};
-    db.collection("stories").orderBy("createdAt","desc").limit(500).onSnapshot(s=>{clearTimeout(timer);this.approved=s.docs.map(d=>Object.assign({id:d.id},d.data()));setState(this.canWrite?"live":"readonly");this.emit()},fail);
-    db.collection("res").onSnapshot(s=>{this.res={};s.docs.forEach(d=>this.res[d.id]=(d.data().ids||[]));this.emit()},()=>{});
-    if(this.uid&&this.canWrite)db.doc("submissions/"+this.uid).onSnapshot(d=>{this.mine=(d.exists&&d.data().items)||[];this.emit()},()=>{});
-    if(this.isMod){
-      db.collection("submissions").onSnapshot(s=>{this.subs={};s.docs.forEach(d=>this.subs[d.id]=d.data().items||[]);this.emit()},()=>{});
-      db.collection("flags").onSnapshot(s=>{this.flags={};s.docs.forEach(d=>this.flags[d.id]=d.data().ids||[]);this.emit()},()=>{});
-    }
-  },
-  loadLocal(){let o={};try{o=JSON.parse(localStorage.getItem(LKEY)||"{}")}catch(e){}this.mine=o.mine||[];this.approved=o.approved||[];this.res={me:o.res||[]};this.flags={me:o.flags||[]};this.uid="me";this.isMod=true;this.subs={me:this.mine}},
-  saveLocal(){try{localStorage.setItem(LKEY,JSON.stringify({mine:this.mine,approved:this.approved,res:this.res.me||[],flags:this.flags.me||[]}))}catch(e){}this.subs={me:this.mine};this.emit()},
-  emit(){this.listeners.forEach(f=>f())},
-  resCount(id){let n=0;for(const k in this.res)if(this.res[k].includes(id))n++;return n},
-  flagCount(id){let n=0;for(const k in this.flags)if(this.flags[k].includes(id))n++;return n},
-  iRes(id){return (this.res[this.uid]||[]).includes(id)},
-  iFlag(id){return (this.flags[this.uid]||[]).includes(id)},
-  /* student: send a story to the queue */
-  async submit(s){
-    const item=Object.assign({id:newId(),status:"pending",createdAt:Date.now()},s);
-    if(this.mode==="db"){const items=this.mine.concat(item);await this.db.doc("submissions/"+this.uid).set({items})}
-    else{this.mine.push(item);this.saveLocal()}
-  },
-  /* student: withdraw (pending → gone; approved → ask for removal) */
-  async withdraw(id){
-    const it=this.mine.find(x=>x.id===id);if(!it)return;
-    const items=it.status==="pending"?this.mine.filter(x=>x.id!==id):this.mine.map(x=>x.id===id?Object.assign({},x,{removeRequested:true}):x);
-    if(this.mode==="db")await this.db.doc("submissions/"+this.uid).set({items});else{this.mine=items;this.saveLocal()}
-  },
-  /* moderator: approve / decline / take down / keep */
-  async setStatus(owner,id,patch){
-    const items=(this.subs[owner]||[]).map(x=>x.id===id?Object.assign({},x,patch,{decidedAt:Date.now()}):x);
-    if(this.mode==="db")await this.db.doc("submissions/"+owner).set({items});else{this.mine=items;this.saveLocal()}
-  },
-  async approve(owner,item){
-    const pub=Object.assign(pick(item,PUBLIC),{approvedAt:Date.now()});
-    if(this.mode==="db")await this.db.doc("stories/"+item.id).set(pub);else{this.approved=this.approved.filter(x=>x.id!==item.id).concat(Object.assign({id:item.id},pub))}
-    await this.setStatus(owner,item.id,{status:"approved",note:"",removeRequested:false});
-  },
-  async decline(owner,item,note){await this.setStatus(owner,item.id,{status:"declined",note:note||""})},
-  async takeDown(owner,id,note){
-    if(this.mode==="db")await this.db.doc("stories/"+id).delete();else this.approved=this.approved.filter(x=>x.id!==id);
-    if(owner)await this.setStatus(owner,id,{status:"removed",note:note||"",removeRequested:false});else if(this.mode!=="db")this.saveLocal();
-  },
-  async keep(id){const n=this.flagCount(id);if(this.mode==="db")await this.db.doc("stories/"+id).update({reviewedFlags:n});else{const s=this.approved.find(x=>x.id===id);if(s)s.reviewedFlags=n;this.saveLocal()}},
-  /* readers */
-  async toggleRes(id){const cur=this.res[this.uid]||[];const ids=cur.includes(id)?cur.filter(x=>x!==id):cur.concat(id);if(this.mode==="db")await this.db.doc("res/"+this.uid).set({ids});else{this.res.me=ids;this.saveLocal()}},
-  async flag(id){const cur=this.flags[this.uid]||[];if(cur.includes(id))return;const ids=cur.concat(id);if(this.mode==="db")await this.db.doc("flags/"+this.uid).set({ids});else{this.flags.me=ids;this.saveLocal()}}
+const GOOGLE={
+  action:"https://docs.google.com/forms/d/e/1FAIpQLSc7ndV0M0az6n5rTu6EjqKdQ8Iuz59a5yeRHiqwDZAAd6Amow/formResponse",
+  csv:"https://docs.google.com/spreadsheets/d/e/2PACX-1vRM2RO2D31X7FmJsyPLvQIqpRmG8PgXdphi_wGdS4UXd4EtqDi555_Hw7UTc6sHuliTaKggd7L2O1Pj/pub?gid=78945980&single=true&output=csv",
+  entries:{story:"entry.424137986",question:"entry.1641410970",chose:"entry.1678610284",dir:"entry.2022924864",chs:"entry.1688254326",course:"entry.581665735",major:"entry.554110155",name:"entry.271700424",title:"entry.48917947",consent:"entry.1661131047"},
+  consent:"I'm sharing this for the living collection. It's my own experience, I've changed or left out anything that could identify someone else, and I understand an instructor reviews it first.",
+  dirText:{closer:"closer",away:"away",unsure:"not sure yet"}
 };
-/* hosted outside claude.ai (e.g. GitHub Pages): send students to the live collection */
-const LIVE_URL="https://claude.ai/artifact/4Jk5MwZ5TFNxPvi36DdVW9";
-function bridge(){
-  const c=$(".compose");if(!c)return;
-  c.innerHTML=`<div class="worksheet"><div class="ws-head"><span class="stamp">Your Encounter</span></div>
-    <h3 style="font-size:28px;font-weight:800;margin-bottom:6px">Add yours on the live collection</h3>
-    <p style="font-size:16px;color:var(--ink-2)">Students in HCAI courses share their encounters on the live edition of this book, where an instructor reviews each one before it's woven onto the loom. You'll write it the same way the book does: what happened, the question it left you with, what you chose, and whether it brought you closer or carried you away.</p>
-    <p><a class="btn solid" href="${LIVE_URL}" target="_blank" rel="noopener">Open the live collection ↗</a></p>
-    <p class="hand" style="font-size:20px;color:var(--pencil);line-height:1.2;margin:0">You'll need to be signed in to claude.ai with access your instructor gives you.</p></div>`;
-  window.AIE.tell=()=>{};
+const DIR_FROM={"closer":"closer","away":"away","not sure yet":"unsure"};
+function parseCSV(t){const rows=[];let row=[],f="",q=false;for(let i=0;i<t.length;i++){const c=t[i];if(q){if(c==='"'){if(t[i+1]==='"'){f+='"';i++}else q=false}else f+=c}else if(c==='"')q=true;else if(c===","){row.push(f);f=""}else if(c==="\n"||c==="\r"){if(c==="\r"&&t[i+1]==="\n")i++;row.push(f);rows.push(row);row=[];f=""}else f+=c}if(f!==""||row.length){row.push(f);rows.push(row)}return rows}
+function hashId(str){let h=5381;for(let i=0;i<str.length;i++)h=((h<<5)+h+str.charCodeAt(i))|0;return "g"+(h>>>0).toString(36)}
+function rowsToStories(rows){
+  if(!rows.length)return [];const H=rows[0].map(h=>h.trim().toLowerCase());
+  const col=(...keys)=>H.findIndex(h=>keys.some(k=>h.startsWith(k)));
+  const C={ts:col("timestamp"),story:col("the encounter"),question:col("the question"),chose:col("what you chose"),dir:col("closer or away"),chs:col("which chapters"),course:col("your course"),major:col("your major"),name:col("sign it as"),title:col("give it a title")};
+  const g=(r,k)=>C[k]>=0?(r[C[k]]||"").trim():"";
+  return rows.slice(1).filter(r=>g(r,"story")).map(r=>{const ts=Date.parse(g(r,"ts"))||0;const chs=[...new Set((g(r,"chs").match(/(?:^|,\s*)(\d{1,2})\s*·/g)||[]).map(m=>+m.replace(/\D/g,"")).filter(n=>n>=1&&n<=12))].sort((a,b)=>a-b);
+    return {id:hashId(g(r,"ts")+g(r,"story")),story:g(r,"story"),question:g(r,"question"),chose:g(r,"chose"),dir:DIR_FROM[g(r,"dir").toLowerCase()]||"unsure",chs,course:g(r,"course"),major:g(r,"major"),name:g(r,"name"),title:g(r,"title"),createdAt:ts}});
 }
+window.AIE.csvTools={parseCSV,rowsToStories};
+
+const isLocal=/^(localhost|127\.0\.0\.1|\[::1\]|)$/.test(location.hostname);
+const Store={
+  dry:isLocal&&!/[?&]send\b/.test(location.search),   // on your own computer, nothing is sent unless ?send is in the address
+  approved:[],mine:[],listeners:[],
+  async init(){
+    try{this.mine=JSON.parse(localStorage.getItem("aie:sent")||"[]")}catch(e){this.mine=[]}
+    setState("connecting");this.emit();
+    try{const r=await fetch(GOOGLE.csv,{cache:"no-store",credentials:"omit"});if(!r.ok)throw new Error(r.status);this.approved=rowsToStories(parseCSV(await r.text()));setState(this.dry?"dry":"live")}
+    catch(e){setState("error")}
+    this.markApproved();this.emit();
+  },
+  markApproved(){let changed=false;this.mine.forEach(m=>{if(m.status!=="approved"&&this.approved.some(a=>a.story.trim()===m.story.trim())){m.status="approved";changed=true}});if(changed)this.saveMine()},
+  saveMine(){try{localStorage.setItem("aie:sent",JSON.stringify(this.mine))}catch(e){}},
+  emit(){this.listeners.forEach(f=>f())},
+  async submit(s){
+    const E=GOOGLE.entries,b=new URLSearchParams();
+    b.append(E.story,s.story);if(s.question)b.append(E.question,s.question);if(s.chose)b.append(E.chose,s.chose);
+    b.append(E.dir,GOOGLE.dirText[s.dir]||"not sure yet");s.chs.forEach(c=>b.append(E.chs,c+" · "+CH_TITLES[c-1]));
+    if(s.course)b.append(E.course,s.course);if(s.major)b.append(E.major,s.major);if(s.name)b.append(E.name,s.name);if(s.title)b.append(E.title,s.title);
+    b.append(E.consent,GOOGLE.consent);
+    if(this.dry)console.info("[dry run] would send to the Google Form:",Object.fromEntries([...b.keys()].map(k=>[k,b.getAll(k)])));
+    else await fetch(GOOGLE.action,{method:"POST",mode:"no-cors",body:b});
+    this.mine.push(Object.assign({id:newId(),status:"pending",createdAt:Date.now()},s));this.saveMine();this.emit();
+  }
+};
 function setState(st){
   const el=$("#store-state");if(!el)return;const txt={
-    bridge:"This copy shows the book's twelve founding threads. Student stories are on the live collection, linked on this page.",
-    local:"Local preview: stories stay in this browser, and you're seeing the moderator view so you can try the review flow. Once it's published with shared storage, students only see their own submissions and approved stories.",
-    connecting:"Connecting to the shared collection…",
-    slow:"Still connecting to the shared collection. Stories will appear when it answers.",
-    live:"Live: approved stories from every student appear here as they're added.",
-    readonly:"You can read the collection. Your account can't send stories yet, so ask your instructor for contributor access.",
-    error:"Couldn't reach the shared collection right now. Try reloading in a minute."}[st];
-  el.classList.toggle("live",st==="live");$("span",el).textContent=txt;
-  if(st==="readonly")$("#sf-submit").disabled=true;
+    connecting:"Loading approved stories…",
+    live:"Live: approved stories from HCAI students appear here, usually within a few minutes of an instructor's approval.",
+    dry:"Test mode on this computer: approved stories load from the sheet, but nothing you send leaves this browser.",
+    error:"Couldn't load the approved stories right now. You can still send yours. Try reloading later to see the wall."}[st];
+  el.classList.toggle("live",st==="live"||st==="dry");$("span",el).textContent=txt;
 }
 
 /* ---------------- cards ---------------- */
 function card(s,opts={}){
-  const dir=s.book?"book":s.dir||"unsure";const date=s.book?`Chapter ${s.chs[0]}`:new Date(s.createdAt).toLocaleDateString(undefined,{month:"short",day:"numeric",year:"numeric"});
+  const dir=s.book?"book":s.dir||"unsure";const date=s.book?`Chapter ${s.chs[0]}`:s.createdAt?new Date(s.createdAt).toLocaleDateString(undefined,{month:"short",day:"numeric",year:"numeric"}):"";
   const tags=(s.chs||[]).map(c=>`<a href="#ch${c}">Ch. ${c}</a>`).join("")+(s.course?`<span>${esc(s.course)}</span>`:"")+(s.major?`<span>${esc(s.major)}</span>`:"");
   const story=s.book?esc(s.story.split("\n\n")[0])+` <a href="#ch${s.chs[0]}" class="hand" style="font-size:19px">keep reading →</a>`:esc(s.story).replace(/\n/g,"<br>");
-  const dirLabel={closer:'<span class="dirl" style="color:var(--pen)">closer</span>',away:'<span class="dirl" style="color:var(--red)">away</span>',unsure:'<span class="dirl" style="color:var(--pencil)">not sure yet</span>',book:'<span class="dirl" style="color:var(--pencil)">from the book</span>'}[dir];
-  let actions="";
-  if(opts.wall&&!s.book){const n=Store.resCount(s.id);actions=`<button type="button" data-res="${esc(s.id)}" class="${Store.iRes(s.id)?"me":""}">✋ me too${n?` · ${n}`:""}</button><button type="button" data-flag="${esc(s.id)}">${Store.iFlag(s.id)?"flagged":"flag"}</button>`}
-  if(opts.foot)actions=opts.foot;
-  return `<article class="story ${dir==="book"?"book":dir}" id="${opts.wall?"story-":"rv-"}${esc(s.id)}">${s.book?'<span class="book-tag">from the book</span>':""}
+  const dirLabel=opts.foot||{closer:'<span class="dirl" style="color:var(--pen)">closer</span>',away:'<span class="dirl" style="color:var(--red)">away</span>',unsure:'<span class="dirl" style="color:var(--pencil)">not sure yet</span>',book:'<span class="dirl" style="color:var(--pencil)">from the book</span>'}[dir];
+  return `<article class="story ${dir==="book"?"book":dir}" id="story-${esc(s.id)}">${s.book?'<span class="book-tag">from the book</span>':""}
     <div class="sh"><span class="who">${esc(s.name||"Anonymous")}</span><span class="dt">${esc(date)}</span></div>
     ${s.title?`<h5>${esc(s.title)}</h5>`:""}<p>${story}</p>
     ${s.question?`<p class="qq">"${esc(s.question)}"</p>`:""}
     ${s.chose?`<p class="chose">↳ ${esc(s.chose)}</p>`:""}
-    <div class="tags">${tags}</div><div class="sf">${actions}${dirLabel}</div></article>`;
+    <div class="tags">${tags}</div><div class="sf">${dirLabel}</div></article>`;
 }
 
-/* ---------------- the public wall ---------------- */
+/* ---------------- the wall ---------------- */
 const filt={q:"",ch:"",course:"",dir:"",sort:"new",book:true};
 window.AIE.countFor=ch=>Store.approved.filter(s=>(s.chs||[]).includes(ch)).length;
 function renderWall(){
   const box=$("#stories");if(!box)return;const q=filt.q.toLowerCase();
   let list=Store.approved.slice();if(filt.book)list=list.concat(BOOK);
   list=list.filter(s=>(!filt.ch||(s.chs||[]).includes(+filt.ch))&&(!filt.course||s.course===filt.course)&&(!filt.dir||s.dir===filt.dir)&&(!q||[s.title,s.story,s.question,s.chose,s.name,s.major,s.course].join(" ").toLowerCase().includes(q)));
-  list.sort((a,b)=>{if(!!a.book!==!!b.book)return a.book?1:-1;if(a.book)return a.chs[0]-b.chs[0];return filt.sort==="res"?Store.resCount(b.id)-Store.resCount(a.id)||b.createdAt-a.createdAt:b.createdAt-a.createdAt});
+  list.sort((a,b)=>{if(!!a.book!==!!b.book)return a.book?1:-1;if(a.book)return a.chs[0]-b.chs[0];return filt.sort==="old"?a.createdAt-b.createdAt:b.createdAt-a.createdAt});
   const students=list.filter(s=>!s.book).length;let head="";
-  if(Store.mode==="bridge"&&!filt.q&&!filt.ch&&!filt.course&&!filt.dir)head=`<div class="empty-wall">Student encounters are on the <a href="${LIVE_URL}" target="_blank" rel="noopener">live collection ↗</a>. The book's twelve founding threads are below.</div>`;
-  else if(!students&&!filt.q&&!filt.ch&&!filt.course&&!filt.dir)head=`<div class="empty-wall">No student encounters on the wall yet. The book's twelve are below. Yours can be the first thread. ←</div>`;
+  if(!students&&!filt.q&&!filt.ch&&!filt.course&&!filt.dir)head=`<div class="empty-wall">No student encounters on the wall yet. The book's twelve are below. Yours can be the first thread. ←</div>`;
   else if(!list.length)head=`<div class="empty-wall">Nothing matches those filters yet.</div>`;
-  box.innerHTML=head+list.map(s=>card(s,{wall:true})).join("");
+  box.innerHTML=head+list.map(s=>card(s)).join("");
   window.AIE.renderEchoes&&window.AIE.renderEchoes();
 }
-$("#stories")?.addEventListener("click",async e=>{
-  const r=e.target.closest("[data-res]"),f=e.target.closest("[data-flag]");
-  try{
-    if(r)await Store.toggleRes(r.dataset.res);
-    if(f&&!Store.iFlag(f.dataset.flag)){await Store.flag(f.dataset.flag);toast("Thanks. An instructor will take a look.")}
-  }catch(err){toast("That didn't go through. Try again in a moment.")}
-});
 (function filters(){
   const ch=$("#fl-ch");CH_TITLES.forEach((t,i)=>ch.insertAdjacentHTML("beforeend",`<option value="${i+1}">Ch. ${i+1} · ${esc(t)}</option>`));
   const map={"fl-q":"q","fl-ch":"ch","fl-course":"course","fl-dir":"dir","fl-sort":"sort"};
@@ -3438,57 +3379,12 @@ $("#stories")?.addEventListener("click",async e=>{
   window.AIE.filterTo=n=>{filt.ch=String(n);$("#fl-ch").value=String(n);renderWall()};
 })();
 
-/* ---------------- your submissions ---------------- */
-const STATUS={pending:"waiting for review",approved:"on the wall",declined:"not approved",removed:"taken down",withdrawn:"withdrawn"};
+/* ---------------- what you've sent (this browser only) ---------------- */
 function renderMine(){
   const box=$("#mine");if(!box)return;const items=Store.mine.slice().sort((a,b)=>b.createdAt-a.createdAt);
   box.hidden=!items.length;if(!items.length)return;
-  $("#mine-list").innerHTML=items.map(it=>{const st=it.removeRequested&&it.status==="approved"?"removal requested":STATUS[it.status]||it.status;
-    const btn=it.status==="pending"?`<button type="button" data-wd="${esc(it.id)}">withdraw it</button>`:it.status==="approved"&&!it.removeRequested?`<button type="button" data-wd="${esc(it.id)}">ask to take it down</button>`:"";
-    return `<li><span class="t">${esc(it.title||it.story)}</span><span class="pill ${esc(it.status)}">${esc(st)}</span>${it.note?`<span class="note">Instructor's note: ${esc(it.note)}</span>`:""}${btn}</li>`}).join("");
+  $("#mine-list").innerHTML=items.map(it=>`<li><span class="t">${esc(it.title||it.story)}</span><span class="pill ${it.status==="approved"?"approved":"pending"}">${it.status==="approved"?"on the wall":"sent for review"}</span></li>`).join("");
 }
-$("#mine-list")?.addEventListener("click",async e=>{const b=e.target.closest("[data-wd]");if(!b)return;
-  if(!b._armed){b._armed=1;const o=b.textContent;b.textContent="click again to confirm";setTimeout(()=>{b._armed=0;b.textContent=o},3000);return}
-  try{await Store.withdraw(b.dataset.wd);toast("Done")}catch(err){toast("That didn't go through. Try again in a moment.")}});
-
-/* ---------------- review queue (moderators) ---------------- */
-let rTab="pending";
-function queue(){
-  const all=[];for(const owner in Store.subs)(Store.subs[owner]||[]).forEach(it=>all.push({owner,it}));
-  const pending=all.filter(x=>x.it.status==="pending").sort((a,b)=>a.it.createdAt-b.it.createdAt);
-  const removal=all.filter(x=>x.it.status==="approved"&&x.it.removeRequested);
-  const flagged=Store.approved.filter(s=>Store.flagCount(s.id)>(s.reviewedFlags||0)).map(s=>({owner:(all.find(x=>x.it.id===s.id)||{}).owner,it:s,flagged:Store.flagCount(s.id)}));
-  const decided=all.filter(x=>x.it.status!=="pending").sort((a,b)=>(b.it.decidedAt||0)-(a.it.decidedAt||0)).slice(0,40);
-  return {pending,attention:removal.map(x=>Object.assign(x,{why:"The student asked to take this down"})).concat(flagged.map(x=>Object.assign(x,{why:`Flagged by ${x.flagged} reader${x.flagged>1?"s":""}`}))),decided};
-}
-function renderReview(){
-  const sec=$("#review");if(!sec)return;sec.hidden=!Store.isMod;if(!Store.isMod)return;
-  const Q=queue();const n=Q.pending.length+Q.attention.length;const b=$("#review-badge");b.textContent=n?`${n} to review`:"all caught up";b.classList.toggle("zero",!n);
-  $$("#review-tabs [data-rt]").forEach(c=>{c.setAttribute("aria-pressed",c.dataset.rt===rTab);const k=c.dataset.rt;c.textContent={pending:"Waiting",attention:"Needs attention",decided:"Decided"}[k]+(k!=="decided"&&Q[k].length?` · ${Q[k].length}`:"")});
-  if(Store.mode==="local")$("#review-note").textContent="Local preview: your own test submissions land here so you can try approving and declining. Once published, only you and your Editors see this panel.";
-  const list=Q[rTab];
-  const empty={pending:"Nothing waiting. New submissions show up here first.",attention:"No flags or take-down requests.",decided:"Nothing decided yet."}[rTab];
-  $("#review-list").innerHTML=list.length?list.map(({owner,it,why})=>{
-    const key=esc((owner||"")+"|"+it.id);
-    let acts="";
-    if(rTab==="pending")acts=`<button class="btn small solid" type="button" data-act="approve" data-key="${key}">Approve</button><button class="btn small redb" type="button" data-act="decline" data-key="${key}">Decline</button><input type="text" maxlength="200" placeholder="optional note to the student" aria-label="Note to the student" data-note="${key}">`;
-    else if(rTab==="attention")acts=`<button class="btn small redb" type="button" data-act="down" data-key="${key}">Take it down</button>`+(why.startsWith("Flagged")?`<button class="btn small" type="button" data-act="keep" data-key="${key}">Keep it up</button>`:"")+`<input type="text" maxlength="200" placeholder="optional note to the student" aria-label="Note to the student" data-note="${key}">`;
-    else acts=`<span class="pill ${esc(it.status)}">${esc(STATUS[it.status]||it.status)}</span>`+(it.status==="approved"?`<button class="btn small" type="button" data-act="down" data-key="${key}">Take it down</button>`:it.status==="declined"||it.status==="removed"?`<button class="btn small" type="button" data-act="approve" data-key="${key}">Approve after all</button>`:"")+(it.note?`<span class="rv-status" style="flex-basis:100%;color:var(--ink-2)">note: ${esc(it.note)}</span>`:"");
-    return `<div class="rv">${why?`<span class="rv-why">${esc(why)}</span>`:""}${card(it,{foot:" "})}<div class="rv-actions">${acts}</div></div>`}).join(""):`<div class="empty-wall">${empty}</div>`;
-}
-$("#review-tabs")?.addEventListener("click",e=>{const c=e.target.closest("[data-rt]");if(!c)return;rTab=c.dataset.rt;renderReview()});
-$("#review-list")?.addEventListener("click",async e=>{
-  const b=e.target.closest("[data-act]");if(!b)return;const [owner,id]=b.dataset.key.split("|");
-  const note=($(`[data-note="${CSS.escape(b.dataset.key)}"]`)||{}).value||"";
-  const it=(Store.subs[owner]||[]).find(x=>x.id===id)||Store.approved.find(x=>x.id===id);if(!it)return;
-  b.disabled=true;
-  try{
-    if(b.dataset.act==="approve"){await Store.approve(owner,it);toast("Approved. It's on the wall.")}
-    if(b.dataset.act==="decline"){await Store.decline(owner,it,note);toast("Declined. The student will see your note.")}
-    if(b.dataset.act==="down"){await Store.takeDown(owner||null,id,note);toast("Taken down")}
-    if(b.dataset.act==="keep"){await Store.keep(id);toast("Kept on the wall")}
-  }catch(err){b.disabled=false;toast(err&&err.code==="invalid_argument"?"Your account can't moderate this collection.":"That didn't go through. Try again in a moment.")}
-});
 
 /* ---------------- the loom ---------------- */
 const Loom=(function(){
@@ -3545,15 +3441,15 @@ const Loom=(function(){
     if(!v.dir){msg.textContent="Pick one in step 4: closer, away, or not sure yet.";return}
     if(!v.chs.length){msg.textContent="Choose at least one chapter it echoes in step 5.";return}
     if(!$("#sf-consent").checked){msg.textContent="Check the box to confirm it's yours to share.";return}
-    if(Store.mode==="db"&&!Store.uid){msg.textContent="Sign in to claude.ai to send your story.";return}
+    if(!navigator.onLine){msg.textContent="You're offline. Your draft is saved; send it when you're back online.";return}
     const btn=$("#sf-submit");btn.disabled=true;btn.textContent="Sending…";
     try{await Store.submit({title:v.title.slice(0,80),story:v.story.slice(0,1600),question:v.question.slice(0,200),chose:v.chose.slice(0,600),dir:v.dir,chs:v.chs,course:v.course,major:v.major.slice(0,60),name:v.name.slice(0,40)});
-      msg.className="form-msg ok";msg.textContent="Sent for review. Thank you. Once an instructor approves it, it's woven onto the loom. You can check on it below.";
+      msg.className="form-msg ok";msg.textContent=Store.dry?"Test mode on this computer: nothing was sent. On your live site, this goes to the Google Form.":"Sent for review. Thank you. Once an instructor approves it, it's woven onto the loom.";
       reset();setTimeout(()=>$("#mine")?.scrollIntoView({behavior:reduce?"auto":"smooth",block:"center"}),300);
-    }catch(err){msg.textContent=err&&err.code==="invalid_argument"?"Your account can't send stories yet. Ask your instructor for contributor access.":err&&err.code==="quota_exceeded"?"The collection is full right now. Let your instructor know.":"That didn't send. Check your connection and try again."}
-    finally{btn.disabled=Store.mode==="db"&&!Store.canWrite;btn.textContent="Send it for review"}});
+    }catch(err){msg.textContent="That didn't send. Check your connection and try again."}
+    finally{btn.disabled=false;btn.textContent="Send it for review"}});
 
-  /* speak it: dictation when published, browser speech recognition locally */
+  /* speak it: the browser's own speech recognition, where available */
   (async function mic(){const b=$("#sf-mic");const ta=$("#sf-story");let d=null;try{d=await dictate()}catch(e){}
     const SR=window.SpeechRecognition||window.webkitSpeechRecognition;if(!d&&!SR)return;b.hidden=false;let base="",on=false,rec=null;
     const setOn=v=>{on=v;b.dataset.state=v?"listening":"";b.textContent=v?"■ Stop":"● Speak it"};
@@ -3565,7 +3461,7 @@ const Loom=(function(){
 })();
 
 /* ---------------- go ---------------- */
-Store.listeners.push(()=>{renderWall();renderMine();renderReview();Loom.set(Store.approved)});
+Store.listeners.push(()=>{renderWall();renderMine();Loom.set(Store.approved)});
 document.addEventListener("aie:theme",()=>Loom.draw());
 Store.init();
 })();

@@ -709,6 +709,12 @@ main.page{overflow-x:clip}
 .pill.approved{color:var(--pen)}
 .pill.declined,.pill.removed{color:var(--red)}
 .pill.withdrawn{color:var(--pencil)}
+/* flip cards: the wrappers are spans inside a button, so make them real boxes */
+.term{display:block;width:100%;color:var(--ink);font:inherit}
+.term .in{display:block}
+.term .fa{color:var(--ink)}
+.term .ba{background:var(--slab);color:var(--slab-fg)}
+.term:focus-visible .fa,.term:focus-visible .ba{outline:2px dashed var(--pen);outline-offset:3px}
 
 </style>
 </head>

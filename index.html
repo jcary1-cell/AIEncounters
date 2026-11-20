@@ -716,6 +716,18 @@ main.page{overflow-x:clip}
 .term .ba{background:var(--slab);color:var(--slab-fg)}
 .term:focus-visible .fa,.term:focus-visible .ba{outline:2px dashed var(--pen);outline-offset:3px}
 
+/* ---------- notes & citations ---------- */
+sup.fn{font-family:var(--f-mono);font-size:.62em;line-height:0;vertical-align:super;margin-left:1px}
+sup.fn a{color:var(--red);text-decoration:none;padding:0 2px;border-radius:2px}
+sup.fn a:hover,sup.fn a:focus-visible{background:color-mix(in srgb,var(--red) 14%,transparent)}
+.note-list{list-style:none;padding:0;margin:8px 0 0;max-width:var(--measure)}
+.note-list li{padding:8px 0 8px 2.4em;text-indent:-2.4em;border-bottom:1px dashed var(--line);font-size:16px;line-height:1.55;scroll-margin-top:90px}
+.note-list li .nn{display:inline-block;width:2.4em;text-indent:0;font-family:var(--f-mono);font-size:12px;color:var(--red)}
+.note-list li a{word-break:break-word}
+.note-list li .back{font-family:var(--f-mono);font-size:12px;text-decoration:none;margin-left:4px}
+.note-list li:target{background:color-mix(in srgb,var(--hi) 45%,transparent)}
+.note-list .note-group{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--pencil);border-bottom:0;padding:22px 0 4px;text-indent:0}
+
 </style>
 </head>
 <body>
@@ -865,7 +877,7 @@ main.page{overflow-x:clip}
     <div class="prose">
       <p class="big-q" style="margin-top:0">If you are reading this book, you have already had an AI encounter. Probably several.</p>
       <h3>If you are an educator</h3>
-      <p>Maybe your encounter was a moment of shock, the afternoon you first saw what generative AI could do. Maybe it came while reading a book like Ethan Mollick's <em>Co-Intelligence</em>, when you felt a sharp pinpoint of fear and excitement at the same time. Or maybe it arrived quietly: a student essay, a slide deck, or a website that felt a little off. Uncanny, in a way you could not quite name.</p>
+      <p>Maybe your encounter was a moment of shock, the afternoon you first saw what generative AI could do. Maybe it came while reading a book like Ethan Mollick's <em>Co-Intelligence</em><sup class="fn"><a href="#note-1" id="ref-1" aria-label="Note 1">1</a></sup>, when you felt a sharp pinpoint of fear and excitement at the same time. Or maybe it arrived quietly: a student essay, a slide deck, or a website that felt a little off. Uncanny, in a way you could not quite name.</p>
       <p>Whatever it looked like, it probably left you with questions about connection. How do you connect with students through assessment, course design, and feedback when both sides can generate those things in seconds? How do you link the work of your discipline to the skills students will need after graduation? How can educators think, learn, and teach with AI ethically and intentionally, so that it deepens human connection instead of bypassing it?</p>
       <h3>If you are a student</h3>
       <p>Your encounters may look different. Maybe one came late at night, up against a deadline, when you just needed the assignment done and were not sure why it had been assigned in the first place. Maybe it came the first time you spoke to your phone and it answered like a person. Maybe it was the familiar search engine reshaping itself into something new: an ask instead of a search.</p>
@@ -952,10 +964,10 @@ main.page{overflow-x:clip}
       </table></div>
     </div>
     <div class="prose">
-      <p>In the first wave, textile workers in England who smashed machinery, the Luddites, were not against technology as such. They objected to machines being used to cut wages and break apart skilled trades. In the second wave, Frederick Winslow Taylor's <em>Principles of Scientific Management</em> (1911) argued that managers should study each task, time it with a stopwatch, and hand workers precise instructions. Thinking moved upstairs to the office; doing stayed on the floor.</p>
-      <p>The third wave flipped the script. After the Second World War, economies in wealthy countries shifted toward what Peter Drucker called "knowledge work." For two generations, the safest career advice was: get a job that uses your mind.</p>
+      <p>In the first wave, textile workers in England who smashed machinery, the Luddites, were not against technology as such. They objected to machines being used to cut wages and break apart skilled trades. In the second wave, Frederick Winslow Taylor's <em>Principles of Scientific Management</em> (1911)<sup class="fn"><a href="#note-2" id="ref-2" aria-label="Note 2">2</a></sup> argued that managers should study each task, time it with a stopwatch, and hand workers precise instructions. Thinking moved upstairs to the office; doing stayed on the floor.</p>
+      <p>The third wave flipped the script. After the Second World War, economies in wealthy countries shifted toward what Peter Drucker called "knowledge work."<sup class="fn"><a href="#note-3" id="ref-3" aria-label="Note 3">3</a></sup> For two generations, the safest career advice was: get a job that uses your mind.</p>
       <h4>Braverman and the idea of deskilling</h4>
-      <p>In <em>Labor and Monopoly Capital</em> (1974), Harry Braverman argued that management tends to separate the conception of work (planning, deciding, understanding) from its execution (carrying out instructions). Each time that happens, the worker becomes cheaper and easier to replace, because the skill now lives in the system rather than the person. He called this <strong>deskilling</strong>.</p>
+      <p>In <em>Labor and Monopoly Capital</em> (1974)<sup class="fn"><a href="#note-4" id="ref-4" aria-label="Note 4">4</a></sup>, Harry Braverman argued that management tends to separate the conception of work (planning, deciding, understanding) from its execution (carrying out instructions). Each time that happens, the worker becomes cheaper and easier to replace, because the skill now lives in the system rather than the person. He called this <strong>deskilling</strong>.</p>
       <p>Braverman was writing about factories and offices. But his lens fits generative AI uncannily well. Earlier automation took over the hands. Generative AI reaches the step Braverman thought was safest: the moment of synthesis, when a person pulls scattered information into a draft, a design, or a solution.</p>
       <p>We can call this <strong>cognitive deskilling</strong>. It does not take the job away all at once. It quietly removes the struggle through which a person becomes skilled.</p>
       <h4>Why Dev's problem may be harder than Marguerite's</h4>
@@ -975,7 +987,7 @@ main.page{overflow-x:clip}
     <div class="prose">
       <p>This is the <strong>apprenticeship problem</strong>. Most expertise grows from years of doing the "easy" work badly, then less badly, then well. When automation absorbs entry-level tasks, it can saw off the bottom rungs of the ladder.</p>
       <h4>Alienation, revisited</h4>
-      <p>In his early writings, Karl Marx described <strong>alienation</strong>: the feeling of being separated from the products of your labor, from the process of making, from other people, and from your own potential. You do not have to accept Marx's broader politics to recognize the experience. It is the feeling of finishing a workday having produced a great deal and made nothing that feels like yours.</p>
+      <p>In his early writings, Karl Marx described <strong>alienation</strong><sup class="fn"><a href="#note-5" id="ref-5" aria-label="Note 5">5</a></sup>: the feeling of being separated from the products of your labor, from the process of making, from other people, and from your own potential. You do not have to accept Marx's broader politics to recognize the experience. It is the feeling of finishing a workday having produced a great deal and made nothing that feels like yours.</p>
       <p class="big-q">The question for this book is not whether to use AI. It is whether a given use leaves you more connected to your work or less.</p>
     </div>
   </div>
@@ -1070,7 +1082,7 @@ main.page{overflow-x:clip}
     <div class="part-label"><span class="pn">ii.</span><h3>The Human-Centered Inquiry</h3><span class="tm">20–30 minutes</span></div>
     <div class="prose">
       <h4>Labor, work, and action</h4>
-      <p>In <em>The Human Condition</em> (1958), the philosopher Hannah Arendt divided human activity into three kinds. Her categories are a useful lens for anyone trying to understand what AI is changing.</p>
+      <p>In <em>The Human Condition</em> (1958)<sup class="fn"><a href="#note-6" id="ref-6" aria-label="Note 6">6</a></sup>, the philosopher Hannah Arendt divided human activity into three kinds. Her categories are a useful lens for anyone trying to understand what AI is changing.</p>
     </div>
     <div class="figure" id="arendt">
       <div class="fig-t">Arendt's three activities <span class="try-it">← switch between them</span></div>
@@ -1087,10 +1099,10 @@ main.page{overflow-x:clip}
       <p>Jordan's job used to involve <em>work</em>: crafting campaigns that carried the writer's imprint. Now it is mostly <em>labor</em>: reviewing, checking, approving, in an endless loop that leaves nothing behind.</p>
       <p>Generative AI is very good at accelerating labor. The risk is that, in doing so, it also absorbs work and action, the two activities Arendt believed gave human life its meaning and its freedom.</p>
       <h4>Empty work</h4>
-      <p>The anthropologist David Graeber wrote about jobs that even the people holding them feel are pointless. In <em>Bullshit Jobs</em> (2018), he argued that this sense of pointlessness causes real psychological harm. People want to feel that their effort makes a difference.</p>
+      <p>The anthropologist David Graeber wrote about jobs that even the people holding them feel are pointless. In <em>Bullshit Jobs</em> (2018)<sup class="fn"><a href="#note-7" id="ref-7" aria-label="Note 7">7</a></sup>, he argued that this sense of pointlessness causes real psychological harm. People want to feel that their effort makes a difference.</p>
       <p>AI can create a new version of this problem. A role can be full of activity and still be empty, because the person no longer shapes the outcome. Jordan is not idle. Jordan is unnecessary in a way that is visible only to Jordan.</p>
       <h4>Epistemic ownership</h4>
-      <p>What makes work feel meaningful? Research on motivation repeatedly points to autonomy, mastery, and purpose. This book adds a closely related idea: <strong>epistemic ownership</strong>. You have epistemic ownership when you can point to something in the world and say, <em>I understood this, I made choices about it, and my values are visible in it.</em></p>
+      <p>What makes work feel meaningful? Research on motivation repeatedly points to autonomy, mastery, and purpose<sup class="fn"><a href="#note-8" id="ref-8" aria-label="Note 8">8</a></sup>. This book adds a closely related idea: <strong>epistemic ownership</strong>. You have epistemic ownership when you can point to something in the world and say, <em>I understood this, I made choices about it, and my values are visible in it.</em></p>
       <p>Epistemic ownership does not require doing everything by hand. A film director owns a film made by hundreds of people. What matters is that your judgment, voice, and effort leave an imprint.</p>
       <h4>The dignity of struggle</h4>
       <p>There is a reason finishing a hard project feels different from finishing an easy one. Struggle is how we learn what we are capable of. Remove all of it and you remove the evidence of our own growth.</p>
@@ -1184,13 +1196,13 @@ main.page{overflow-x:clip}
       <p><strong>Cognitive bypassing</strong> happens when a tool lets you produce the evidence of learning without the learning itself. The paper exists; the understanding does not.</p>
       <p>This is different from cheating in the old sense. Sam did not copy a classmate. In some ways, Sam did exactly what many workplaces now expect: use available tools to deliver a polished product on time. The problem is that a capstone is not a product. It is a process designed to change the person doing it.</p>
       <h4>Productive friction</h4>
-      <p>Learning scientists have long observed that some difficulties make learning stick. Robert Bjork and colleagues call these <strong>desirable difficulties</strong>: spacing out practice, testing yourself instead of rereading, and struggling to generate an answer before seeing it. They feel slower and harder in the moment, yet they produce deeper, longer-lasting understanding.</p>
+      <p>Learning scientists have long observed that some difficulties make learning stick. Robert Bjork and colleagues call these <strong>desirable difficulties</strong><sup class="fn"><a href="#note-9" id="ref-9" aria-label="Note 9">9</a></sup>: spacing out practice, testing yourself instead of rereading, and struggling to generate an answer before seeing it. They feel slower and harder in the moment, yet they produce deeper, longer-lasting understanding.</p>
       <p>Intellectual growth needs this kind of friction:</p>
       <ul class="dots"><li>Sitting with ambiguity when a question has no clean answer yet</li><li>Wrestling with contradictory evidence instead of averaging it away</li><li>Rebuilding a hypothesis after it fails</li></ul>
       <p>An AI that resolves every difficulty immediately can feel like a perfect tutor. It may actually be a perfect bypass.</p>
       <h4>Learning as relationship</h4>
-      <p>The Brazilian educator Paulo Freire criticized what he called the <strong>banking model</strong> of education, in which teachers "deposit" information into passive students. He argued for <strong>dialogic</strong> learning instead: teachers and students thinking together, questioning the world and each other, and being changed in the process.</p>
-      <p>The philosopher Nel Noddings added that education rests on an <strong>ethic of care</strong>: a relationship in which the teacher pays real attention to the student, and the student responds. Learning, in this view, is not a transfer of data. It is something that happens <em>between people</em>.</p>
+      <p>The Brazilian educator Paulo Freire criticized what he called the <strong>banking model</strong><sup class="fn"><a href="#note-10" id="ref-10" aria-label="Note 10">10</a></sup> of education, in which teachers "deposit" information into passive students. He argued for <strong>dialogic</strong> learning instead: teachers and students thinking together, questioning the world and each other, and being changed in the process.</p>
+      <p>The philosopher Nel Noddings added that education rests on an <strong>ethic of care</strong><sup class="fn"><a href="#note-11" id="ref-11" aria-label="Note 11">11</a></sup>: a relationship in which the teacher pays real attention to the student, and the student responds. Learning, in this view, is not a transfer of data. It is something that happens <em>between people</em>.</p>
       <p>Sam's paper skipped both. There was no dialogue with the ideas and no relationship with the professor, only a transaction that both sides were deceived by.</p>
       <h4>The case for scaffolding</h4>
       <p>None of this means AI has no place in learning. Used well, it can be a patient explainer, a quiz partner, or a source of counterarguments. The difference lies in <em>where</em> in the process you invite it in. A scaffold supports a building while it goes up. A bypass replaces the building with a picture of one.</p>
@@ -1297,10 +1309,10 @@ main.page{overflow-x:clip}
     <div class="part-label"><span class="pn">ii.</span><h3>The Human-Centered Inquiry</h3><span class="tm">20–30 minutes</span></div>
     <div class="prose">
       <h4>The problem of the agreeable machine</h4>
-      <p>Many AI systems are trained in part on human feedback, and people tend to rate agreeable answers highly. The result is a well-documented tendency researchers call <strong>sycophancy</strong>: the model leans toward telling you what you seem to want to hear. Ask a leading question and you will often get a leading answer.</p>
+      <p>Many AI systems are trained in part on human feedback, and people tend to rate agreeable answers highly. The result is a well-documented tendency researchers call <strong>sycophancy</strong><sup class="fn"><a href="#note-12" id="ref-12" aria-label="Note 12">12</a></sup>: the model leans toward telling you what you seem to want to hear. Ask a leading question and you will often get a leading answer.</p>
       <p>That makes AI a poor judge of your ideas by default. It also makes it a potentially excellent sparring partner, if you set the rules.</p>
       <h4>Human-Centered AI: not a zero-sum slider</h4>
-      <p>The computer scientist Ben Shneiderman, a founder of the field of human-computer interaction, has argued for what he calls <strong>Human-Centered AI (HCAI)</strong>. A common assumption holds that more machine autonomy means less human control, like a single slider. Shneiderman proposed instead that these are two separate dimensions.</p>
+      <p>The computer scientist Ben Shneiderman, a founder of the field of human-computer interaction, has argued for what he calls <strong>Human-Centered AI (HCAI)</strong><sup class="fn"><a href="#note-13" id="ref-13" aria-label="Note 13">13</a></sup>. A common assumption holds that more machine autonomy means less human control, like a single slider. Shneiderman proposed instead that these are two separate dimensions.</p>
     </div>
     <div class="figure" id="hcai-fig">
       <div class="fig-t">Two dimensions, not one slider <span class="try-it">move both sliders</span></div>
@@ -1566,24 +1578,24 @@ main.page{overflow-x:clip}
     <div class="part-label"><span class="pn">ii.</span><h3>The Human-Centered Inquiry</h3><span class="tm">20–30 minutes</span></div>
     <div class="prose">
       <h4>Technology is never neutral</h4>
-      <p>In a famous 1980 essay, "Do Artifacts Have Politics?", the political theorist Langdon Winner argued that technologies can embody choices about power: who gets access, who is excluded, who decides. AI systems are artifacts in exactly this sense. They are built by particular people, for particular purposes, from particular data.</p>
+      <p>In a famous 1980 essay, "Do Artifacts Have Politics?"<sup class="fn"><a href="#note-14" id="ref-14" aria-label="Note 14">14</a></sup>, the political theorist Langdon Winner argued that technologies can embody choices about power: who gets access, who is excluded, who decides. AI systems are artifacts in exactly this sense. They are built by particular people, for particular purposes, from particular data.</p>
       <p>This is not a conspiracy theory. It is a description of how any designed thing works.</p>
       <h4>How bias gets in</h4>
       <p>A model learns patterns from its training data. If that data reflects past discrimination, the model will tend to reproduce it, often in ways no one intended and no one notices.</p>
-      <p>A widely reported real-world example: in 2018, Reuters reported that Amazon had abandoned an experimental recruiting tool after finding it penalized resumes containing the word "women's," as in "women's chess club." The system had learned from a decade of past hiring, in which most successful applicants were men.</p>
+      <p>A widely reported real-world example: in 2018, Reuters reported that Amazon had abandoned an experimental recruiting tool after finding it penalized resumes containing the word "women's," as in "women's chess club."<sup class="fn"><a href="#note-15" id="ref-15" aria-label="Note 15">15</a></sup> The system had learned from a decade of past hiring, in which most successful applicants were men.</p>
       <p class="big-q">The Encounter above is fictional. That case was not.</p>
       <h4>Critical lenses</h4>
       <p>Several scholars have given us tools for seeing these patterns.</p>
       <ul class="dots">
-        <li>Ruha Benjamin, in <em>Race After Technology</em> (2019), coined the term "the New Jim Code" to describe technologies that appear objective but reproduce racial hierarchies.</li>
-        <li>Catherine D'Ignazio and Lauren Klein, in <em>Data Feminism</em> (2020), ask who collects data, about whom, and for whose benefit. They urge us to examine power at every stage of the data pipeline.</li>
-        <li>The broader field of critical data studies treats datasets as human-made documents with authors, gaps, and agendas, not as raw truth.</li>
+        <li>Ruha Benjamin, in <em>Race After Technology</em> (2019), coined the term "the New Jim Code"<sup class="fn"><a href="#note-16" id="ref-16" aria-label="Note 16">16</a></sup> to describe technologies that appear objective but reproduce racial hierarchies.</li>
+        <li>Catherine D'Ignazio and Lauren Klein, in <em>Data Feminism</em> (2020)<sup class="fn"><a href="#note-17" id="ref-17" aria-label="Note 17">17</a></sup>, ask who collects data, about whom, and for whose benefit. They urge us to examine power at every stage of the data pipeline.</li>
+        <li>The broader field of critical data studies<sup class="fn"><a href="#note-18" id="ref-18" aria-label="Note 18">18</a></sup> treats datasets as human-made documents with authors, gaps, and agendas, not as raw truth.</li>
       </ul>
       <h4>Hermeneutics: the art of interpretation</h4>
       <p><strong>Hermeneutics</strong> began as the study of how to interpret texts, from scripture to law. Its core insight is that meaning depends on context: who wrote this, when, for whom, and what did they leave out?</p>
       <p><strong>Sociotechnical hermeneutics</strong> applies that same interpretive skill to technical systems. A training dataset is a kind of archive. Like any archive, it preserves some voices and silences others. Reading it well requires the skills of a humanist as much as an engineer.</p>
       <h4>The hidden supply chain</h4>
-      <p>AI also depends on human labor that is rarely visible: writers whose work became training data, and data workers, often low-paid and located far from where the products are sold, who label content and review harmful material. Understanding a tool's provenance means seeing these people too.</p>
+      <p>AI also depends on human labor that is rarely visible: writers whose work became training data, and data workers, often low-paid and located far from where the products are sold, who label content and review harmful material.<sup class="fn"><a href="#note-19" id="ref-19" aria-label="Note 19">19</a></sup> Understanding a tool's provenance means seeing these people too.</p>
     </div>
   </div>
 
@@ -1702,7 +1714,7 @@ main.page{overflow-x:clip}
     <div class="prose">
       <p>AI can imitate cadence and diction. It cannot supply stance, lived narrative, or moral clarity. Those must come from you.</p>
       <h4>Presenting the self</h4>
-      <p>The sociologist Erving Goffman, in <em>The Presentation of Self in Everyday Life</em> (1959), described social life as a kind of performance. We manage how others see us, adjusting our "front" for different audiences.</p>
+      <p>The sociologist Erving Goffman, in <em>The Presentation of Self in Everyday Life</em> (1959)<sup class="fn"><a href="#note-20" id="ref-20" aria-label="Note 20">20</a></sup>, described social life as a kind of performance. We manage how others see us, adjusting our "front" for different audiences.</p>
       <p>Digital life adds new layers to this performance. Profiles, posts, and applications are all curated selves. AI makes curation easier still, which raises a question Goffman could not have anticipated: <em>If a machine wrote my front, is it still my performance?</em></p>
       <h4>The ethics of co-writing</h4>
       <p>Co-writing with AI is not inherently dishonest. Writers have always used editors, templates, and feedback. The ethical questions are about <strong>transparency</strong> (would your reader feel misled if they knew?) and <strong>integrity</strong> (does the final piece truly represent what you think and who you are?).</p>
@@ -1797,7 +1809,7 @@ main.page{overflow-x:clip}
     <div class="part-label"><span class="pn">ii.</span><h3>The Human-Centered Inquiry</h3><span class="tm">20–30 minutes</span></div>
     <div class="prose">
       <h4>The trouble with detection</h4>
-      <p>AI-detection tools estimate the likelihood that text was machine-generated. Independent research has found they can be unreliable, and a 2023 Stanford study found that several detectors frequently misclassified essays by non-native English speakers as AI-written. When a tool's errors fall hardest on particular groups of students, its use becomes a fairness problem, not just a technical one.</p>
+      <p>AI-detection tools estimate the likelihood that text was machine-generated. Independent research has found they can be unreliable, and a 2023 Stanford study<sup class="fn"><a href="#note-21" id="ref-21" aria-label="Note 21">21</a></sup> found that several detectors frequently misclassified essays by non-native English speakers as AI-written. When a tool's errors fall hardest on particular groups of students, its use becomes a fairness problem, not just a technical one.</p>
       <p>Even a perfect detector would leave a deeper problem untouched. It treats the classroom as a site of enforcement rather than learning.</p>
       <h4>Machines talking to machines</h4>
       <p>Imagine the end point of current trends. A student submits an AI-written essay. An instructor uses AI to generate feedback. The student uses AI to revise in response. Each side is efficient. No one has actually met.</p>
@@ -1810,7 +1822,7 @@ main.page{overflow-x:clip}
     <div class="prose">
       <p>This is education reduced to machines talking to machines across an empty classroom. It satisfies every requirement on paper and fails the only one that matters: a human being changed by an encounter with another human being and with ideas.</p>
       <h4>Education as relationship</h4>
-      <p>The educator and writer bell hooks, in <em>Teaching to Transgress</em> (1994), described <strong>engaged pedagogy</strong>: teaching that treats students as whole people and the classroom as a community where everyone's presence matters. Nel Noddings, whom we met in Chapter 3, grounded education in care and attention.</p>
+      <p>The educator and writer bell hooks, in <em>Teaching to Transgress</em> (1994)<sup class="fn"><a href="#note-22" id="ref-22" aria-label="Note 22">22</a></sup>, described <strong>engaged pedagogy</strong>: teaching that treats students as whole people and the classroom as a community where everyone's presence matters. Nel Noddings, whom we met in Chapter 3, grounded education in care and attention.</p>
       <p>Both point to the same truth. Learning involves vulnerability: being willing to be wrong in front of someone. Vulnerability requires trust. Surveillance destroys it.</p>
       <h4>The syllabus as a handshake</h4>
       <p>A syllabus is usually written as a contract, full of rules, penalties, and fine print. But it can also be a <strong>handshake</strong>: a mutual agreement in which both sides commit to something. The instructor promises clarity, fairness, and genuine feedback. Students promise honest effort and transparency about how they work, including how they use AI.</p>
@@ -1934,10 +1946,10 @@ main.page{overflow-x:clip}
       <p>Many employers now screen applications with automated systems that filter resumes by keywords and criteria before any human reads them. Applicants respond by using AI to write more applications, faster. Employers respond with more automation. The result is an arms race in which each side becomes more invisible to the other.</p>
       <p>The hidden social cost is <strong>atomization</strong>: job seekers are isolated, each alone with a screen, competing with thousands of strangers through a process none of them can see.</p>
       <h4>The strength of weak ties</h4>
-      <p>In 1973, the sociologist Mark Granovetter published one of the most cited papers in social science, "The Strength of Weak Ties." His finding surprised people. Job seekers often got useful leads not from close friends (<strong>strong ties</strong>) but from acquaintances (<strong>weak ties</strong>).</p>
-      <p>The reason is simple. Your close friends tend to know the same people and hear the same news you do. Acquaintances move in different circles, so they carry new information. A large 2022 study of LinkedIn users, published in <em>Science</em>, found evidence consistent with this idea: moderately weak ties were the most helpful for job mobility.</p>
+      <p>In 1973, the sociologist Mark Granovetter published one of the most cited papers in social science, "The Strength of Weak Ties."<sup class="fn"><a href="#note-23" id="ref-23" aria-label="Note 23">23</a></sup> His finding surprised people. Job seekers often got useful leads not from close friends (<strong>strong ties</strong>) but from acquaintances (<strong>weak ties</strong>).</p>
+      <p>The reason is simple. Your close friends tend to know the same people and hear the same news you do. Acquaintances move in different circles, so they carry new information. A large 2022 study of LinkedIn users, published in <em>Science</em><sup class="fn"><a href="#note-24" id="ref-24" aria-label="Note 24">24</a></sup>, found evidence consistent with this idea: moderately weak ties were the most helpful for job mobility.</p>
       <h4>Brokers and structural holes</h4>
-      <p>The sociologist Ronald Burt added another idea: <strong>structural holes</strong>. These are gaps between groups that do not talk to each other. People who bridge those gaps, called <strong>brokers</strong>, gain access to ideas and opportunities that others miss.</p>
+      <p>The sociologist Ronald Burt<sup class="fn"><a href="#note-25" id="ref-25" aria-label="Note 25">25</a></sup> added another idea: <strong>structural holes</strong>. These are gaps between groups that do not talk to each other. People who bridge those gaps, called <strong>brokers</strong>, gain access to ideas and opportunities that others miss.</p>
       <p>Eli's aunt's neighbor was a broker. She connected the world of philosophy graduates to the world of user research, two groups that rarely meet.</p>
       <h4>Translating the liberal arts</h4>
       <p>Liberal arts graduates often struggle to explain the value of their skills, especially to automated filters looking for specific keywords. But many of those skills are increasingly important in an AI economy.</p>
@@ -2074,9 +2086,9 @@ main.page{overflow-x:clip}
     <div class="part-label"><span class="pn">ii.</span><h3>The Human-Centered Inquiry</h3><span class="tm">20–30 minutes</span></div>
     <div class="prose">
       <h4>Algorithmic management</h4>
-      <p><strong>Algorithmic management</strong> means using software to assign, monitor, evaluate, and sometimes discipline workers. It began with ride-hailing and delivery apps and has spread into warehouses, call centers, and offices.</p>
+      <p><strong>Algorithmic management</strong> means using software to assign, monitor, evaluate, and sometimes discipline workers. It began with ride-hailing and delivery apps<sup class="fn"><a href="#note-26" id="ref-26" aria-label="Note 26">26</a></sup> and has spread into warehouses, call centers, and offices.</p>
       <p>These systems promise objectivity. In practice, they measure what is easy to count, such as keystrokes, clicks, and time on task, and can miss what matters most: judgment, creativity, care, and collaboration. Echoing Chapter 1, they can also shift power. When the system defines "good work," workers lose a say in what their work is.</p>
-      <p>The scholar Shoshana Zuboff, in <em>The Age of Surveillance Capitalism</em> (2019), described how data extracted from human behavior became a source of profit and control. Workplace monitoring is one place that logic has landed.</p>
+      <p>The scholar Shoshana Zuboff, in <em>The Age of Surveillance Capitalism</em> (2019)<sup class="fn"><a href="#note-27" id="ref-27" aria-label="Note 27">27</a></sup>, described how data extracted from human behavior became a source of profit and control. Workplace monitoring is one place that logic has landed.</p>
       <h4>Rethinking professionalism</h4>
       <p>Professionalism is often taught as reliability, politeness, and following the rules. Those are good habits. But in an automated workplace, quiet compliance can mean going along with systems that harm people.</p>
       <p>This book proposes a fuller definition: professionalism as <strong>sociotechnical stewardship</strong>. A steward takes responsibility for something on behalf of others. A professional steward notices when a tool causes harm, raises concerns through appropriate channels, and helps fix the problem.</p>
@@ -2225,7 +2237,7 @@ main.page{overflow-x:clip}
         <li>They erode trust, signaling that leaders see faculty and students as risks to manage rather than partners to involve.</li>
       </ul>
       <h4>Leading through trust</h4>
-      <p>Leadership scholars distinguish between <strong>technical problems</strong>, which have known solutions experts can apply, and <strong>adaptive challenges</strong>, which require people to learn, change values or habits, and invent new approaches. The leadership scholar Ronald Heifetz developed this distinction. AI in education is an adaptive challenge. No one has the answer yet.</p>
+      <p>Leadership scholars distinguish between <strong>technical problems</strong>, which have known solutions experts can apply, and <strong>adaptive challenges</strong>, which require people to learn, change values or habits, and invent new approaches. The leadership scholar Ronald Heifetz developed this distinction.<sup class="fn"><a href="#note-28" id="ref-28" aria-label="Note 28">28</a></sup> AI in education is an adaptive challenge. No one has the answer yet.</p>
       <p>Adaptive challenges call for a different kind of leadership: setting direction, protecting space for experimentation, and helping people learn together, rather than handing down solutions.</p>
       <h4>Shared governance as a strength</h4>
       <p>Universities have a long tradition of <strong>shared governance</strong>: faculty, administrators, and often staff and students share responsibility for major decisions. It is sometimes criticized as slow. In a period of uncertainty, it can be an advantage, because decisions made together are understood more widely, adopted more readily, and corrected faster.</p>
@@ -2364,11 +2376,11 @@ main.page{overflow-x:clip}
       <p>UNC Charlotte offers one example of how an institution can build a human-centered AI culture through layered, connected initiatives. Each piece serves a different purpose, and together they form an ecosystem rather than a single program.</p>
     </div>
     <div class="ecos">
-      <div class="eco"><h5><a href="https://teaching.charlotte.edu/2026-ai-summit-for-smarter-learning/" target="_blank" rel="noopener" style="color:inherit;text-decoration-color:var(--line)">Charlotte AI Summit for Smarter Learning <span aria-hidden="true" style="font-family:var(--f-mono);font-size:12px;color:var(--pen)">↗</span></a></h5><p>An annual gathering, hosted by the Center for Teaching and Learning (CTL), where faculty, staff, students, and partners share AI teaching practices. The fourth annual summit took place in May 2026.</p></div>
+      <div class="eco"><h5><a href="https://teaching.charlotte.edu/2026-ai-summit-for-smarter-learning/" target="_blank" rel="noopener" style="color:inherit;text-decoration-color:var(--line)">Charlotte AI Summit for Smarter Learning <span aria-hidden="true" style="font-family:var(--f-mono);font-size:12px;color:var(--pen)">↗</span></a></h5><p>An annual gathering, hosted by the Center for Teaching and Learning (CTL), where faculty, staff, students, and partners share AI teaching practices. The fourth annual summit took place in May 2026.<sup class="fn"><a href="#note-29" id="ref-29" aria-label="Note 29">29</a></sup></p></div>
       <div class="eco"><h5>AI Faculty Fellows</h5><p>Faculty appointed by the CTL to lead events, support colleagues, and champion AI across the curriculum.</p></div>
-      <div class="eco"><h5><a href="https://teaching.charlotte.edu/ai-stories-library/" target="_blank" rel="noopener" style="color:inherit;text-decoration-color:var(--line)">AI Faculty Use Case Stories Collection <span aria-hidden="true" style="font-family:var(--f-mono);font-size:12px;color:var(--pen)">↗</span></a></h5><p>A published collection of 80 first-person faculty stories about teaching with AI, from initial skepticism to classroom redesign.</p></div>
+      <div class="eco"><h5><a href="https://teaching.charlotte.edu/ai-stories-library/" target="_blank" rel="noopener" style="color:inherit;text-decoration-color:var(--line)">AI Faculty Use Case Stories Collection <span aria-hidden="true" style="font-family:var(--f-mono);font-size:12px;color:var(--pen)">↗</span></a></h5><p>A published collection of 80 first-person faculty stories<sup class="fn"><a href="#note-30" id="ref-30" aria-label="Note 30">30</a></sup> about teaching with AI, from initial skepticism to classroom redesign.</p></div>
       <div class="eco"><h5>AI Task Force and AI Steering Committee</h5><p>Cross-campus bodies that guide responsible and ethical AI adoption and issue recommendations.</p></div>
-      <div class="eco"><h5><a href="https://teaching.charlotte.edu/ai-accelerator-in-teaching-and-learning/" target="_blank" rel="noopener" style="color:inherit;text-decoration-color:var(--line)">AI Accelerator in Teaching and Learning <span aria-hidden="true" style="font-family:var(--f-mono);font-size:12px;color:var(--pen)">↗</span></a></h5><p>A cross-divisional leadership team, launched in 2026, that turns task force recommendations into action. Its work is described as "accelerating, enabling and stewarding." Members come from the CTL, the faculty, the library, and legal affairs.</p></div>
+      <div class="eco"><h5><a href="https://teaching.charlotte.edu/ai-accelerator-in-teaching-and-learning/" target="_blank" rel="noopener" style="color:inherit;text-decoration-color:var(--line)">AI Accelerator in Teaching and Learning <span aria-hidden="true" style="font-family:var(--f-mono);font-size:12px;color:var(--pen)">↗</span></a></h5><p>A cross-divisional leadership team, launched in 2026, that turns task force recommendations into action. Its work is described as "accelerating, enabling and stewarding."<sup class="fn"><a href="#note-31" id="ref-31" aria-label="Note 31">31</a></sup> Members come from the CTL, the faculty, the library, and legal affairs.</p></div>
       <div class="eco"><h5><a href="https://interdisciplinarystudies.charlotte.edu/human-centered-ai/" target="_blank" rel="noopener" style="color:inherit;text-decoration-color:var(--line)">Human-Centered AI concentration and AI Fundamentals minor <span aria-hidden="true" style="font-family:var(--f-mono);font-size:12px;color:var(--pen)">↗</span></a></h5><p>Academic programs that bring AI literacy into the humanities and social sciences (see the <a href="#postscript">Postscript</a>).</p></div>
     </div>
     <div class="author-note">Add your own first-hand account here: how these initiatives began, what faculty and students said, what failed, and what changed. Confirm details such as faculty stipends and funding before publication.</div>
@@ -2575,6 +2587,58 @@ main.page{overflow-x:clip}
   </div>
 </section>
 
+<!-- ===================== NOTES (added in the web edition) ===================== -->
+<section class="back biblio notes" id="notes" data-title="Notes">
+  <p class="eyebrow">Back matter · added in the web edition</p>
+  <h2>Notes</h2>
+  <p class="prose" style="color:var(--ink-2)">Full citations for the people, studies, and reports named in the text. Tap a small number in the text to jump here, and ↩ to go back.</p>
+  <ol class="note-list">
+    <li class="note-group">Preface</li>
+    <li id="note-1" value="1"><span class="nn">1.</span> Mollick, Ethan. <em>Co-Intelligence: Living and Working with AI.</em> New York: Portfolio, 2024. <a class="back" href="#ref-1" aria-label="Back to the text">↩</a></li>
+    <li class="note-group">Chapter 1</li>
+    <li id="note-2" value="2"><span class="nn">2.</span> Taylor, Frederick Winslow. <em>The Principles of Scientific Management.</em> New York: Harper &amp; Brothers, 1911. <a class="back" href="#ref-2" aria-label="Back to the text">↩</a></li>
+    <li id="note-3" value="3"><span class="nn">3.</span> Drucker, Peter F. <em>The Landmarks of Tomorrow.</em> New York: Harper &amp; Brothers, 1959. Drucker introduced the term "knowledge worker" here and developed it further in <em>The Age of Discontinuity</em> (Harper &amp; Row, 1969). <a class="back" href="#ref-3" aria-label="Back to the text">↩</a></li>
+    <li id="note-4" value="4"><span class="nn">4.</span> Braverman, Harry. <em>Labor and Monopoly Capital: The Degradation of Work in the Twentieth Century.</em> New York: Monthly Review Press, 1974. <a class="back" href="#ref-4" aria-label="Back to the text">↩</a></li>
+    <li id="note-5" value="5"><span class="nn">5.</span> Marx, Karl. <em>Economic and Philosophic Manuscripts of 1844.</em> Written 1844; first published 1932. See the section "Estranged Labour." <a class="back" href="#ref-5" aria-label="Back to the text">↩</a></li>
+    <li class="note-group">Chapter 2</li>
+    <li id="note-6" value="6"><span class="nn">6.</span> Arendt, Hannah. <em>The Human Condition.</em> Chicago: University of Chicago Press, 1958. <a class="back" href="#ref-6" aria-label="Back to the text">↩</a></li>
+    <li id="note-7" value="7"><span class="nn">7.</span> Graeber, David. <em>Bullshit Jobs: A Theory.</em> New York: Simon &amp; Schuster, 2018. <a class="back" href="#ref-7" aria-label="Back to the text">↩</a></li>
+    <li id="note-8" value="8"><span class="nn">8.</span> Pink, Daniel H. <em>Drive: The Surprising Truth About What Motivates Us.</em> New York: Riverhead Books, 2009. On the underlying research, see Ryan, Richard M., and Edward L. Deci. "Self-Determination Theory and the Facilitation of Intrinsic Motivation, Social Development, and Well-Being." <em>American Psychologist</em> 55, no. 1 (2000): 68–78. <a href="https://doi.org/10.1037/0003-066X.55.1.68" target="_blank" rel="noopener">doi.org/10.1037/0003-066X.55.1.68</a> <a class="back" href="#ref-8" aria-label="Back to the text">↩</a></li>
+    <li class="note-group">Chapter 3</li>
+    <li id="note-9" value="9"><span class="nn">9.</span> Bjork, Robert A. "Memory and Metamemory Considerations in the Training of Human Beings." In <em>Metacognition: Knowing about Knowing</em>, edited by Janet Metcalfe and Arthur P. Shimamura, 185–205. Cambridge, MA: MIT Press, 1994. <a class="back" href="#ref-9" aria-label="Back to the text">↩</a></li>
+    <li id="note-10" value="10"><span class="nn">10.</span> Freire, Paulo. <em>Pedagogy of the Oppressed.</em> Translated by Myra Bergman Ramos. New York: Herder and Herder, 1970. First published in Portuguese, 1968. <a class="back" href="#ref-10" aria-label="Back to the text">↩</a></li>
+    <li id="note-11" value="11"><span class="nn">11.</span> Noddings, Nel. <em>Caring: A Feminine Approach to Ethics and Moral Education.</em> Berkeley: University of California Press, 1984. <a class="back" href="#ref-11" aria-label="Back to the text">↩</a></li>
+    <li class="note-group">Chapter 4</li>
+    <li id="note-12" value="12"><span class="nn">12.</span> Sharma, Mrinank, Meg Tong, Tomasz Korbak, et al. "Towards Understanding Sycophancy in Language Models." In <em>Proceedings of the Twelfth International Conference on Learning Representations (ICLR 2024)</em>. <a href="https://arxiv.org/abs/2310.13548" target="_blank" rel="noopener">arxiv.org/abs/2310.13548</a> <a class="back" href="#ref-12" aria-label="Back to the text">↩</a></li>
+    <li id="note-13" value="13"><span class="nn">13.</span> Shneiderman, Ben. "Human-Centered Artificial Intelligence: Reliable, Safe &amp; Trustworthy." <em>International Journal of Human–Computer Interaction</em> 36, no. 6 (2020): 495–504. <a href="https://doi.org/10.1080/10447318.2020.1741118" target="_blank" rel="noopener">doi.org/10.1080/10447318.2020.1741118</a>. Expanded in Shneiderman, <em>Human-Centered AI</em> (Oxford University Press, 2022). <a class="back" href="#ref-13" aria-label="Back to the text">↩</a></li>
+    <li class="note-group">Chapter 6</li>
+    <li id="note-14" value="14"><span class="nn">14.</span> Winner, Langdon. "Do Artifacts Have Politics?" <em>Daedalus</em> 109, no. 1 (1980): 121–136. <a class="back" href="#ref-14" aria-label="Back to the text">↩</a></li>
+    <li id="note-15" value="15"><span class="nn">15.</span> Dastin, Jeffrey. "Amazon Scraps Secret AI Recruiting Tool That Showed Bias Against Women." Reuters, October 10, 2018. <a href="https://www.reuters.com/article/us-amazon-com-jobs-automation-insight-idUSKCN1MK08G" target="_blank" rel="noopener">reuters.com</a> <a class="back" href="#ref-15" aria-label="Back to the text">↩</a></li>
+    <li id="note-16" value="16"><span class="nn">16.</span> Benjamin, Ruha. <em>Race After Technology: Abolitionist Tools for the New Jim Code.</em> Cambridge: Polity, 2019. <a class="back" href="#ref-16" aria-label="Back to the text">↩</a></li>
+    <li id="note-17" value="17"><span class="nn">17.</span> D'Ignazio, Catherine, and Lauren F. Klein. <em>Data Feminism.</em> Cambridge, MA: MIT Press, 2020. <a href="https://data-feminism.mitpress.mit.edu/" target="_blank" rel="noopener">data-feminism.mitpress.mit.edu (open access)</a> <a class="back" href="#ref-17" aria-label="Back to the text">↩</a></li>
+    <li id="note-18" value="18"><span class="nn">18.</span> Iliadis, Andrew, and Fred Russo. "Critical Data Studies: An Introduction." <em>Big Data &amp; Society</em> 3, no. 2 (2016). <a href="https://doi.org/10.1177/2053951716674238" target="_blank" rel="noopener">doi.org/10.1177/2053951716674238</a> <a class="back" href="#ref-18" aria-label="Back to the text">↩</a></li>
+    <li id="note-19" value="19"><span class="nn">19.</span> Gray, Mary L., and Siddharth Suri. <em>Ghost Work: How to Stop Silicon Valley from Building a New Global Underclass.</em> Boston: Houghton Mifflin Harcourt, 2019. <a class="back" href="#ref-19" aria-label="Back to the text">↩</a></li>
+    <li class="note-group">Chapter 7</li>
+    <li id="note-20" value="20"><span class="nn">20.</span> Goffman, Erving. <em>The Presentation of Self in Everyday Life.</em> Garden City, NY: Doubleday Anchor, 1959. <a class="back" href="#ref-20" aria-label="Back to the text">↩</a></li>
+    <li class="note-group">Chapter 8</li>
+    <li id="note-21" value="21"><span class="nn">21.</span> Liang, Weixin, Mert Yuksekgonul, Yining Mao, Eric Wu, and James Zou. "GPT Detectors Are Biased Against Non-Native English Writers." <em>Patterns</em> 4, no. 7 (2023): 100779. <a href="https://doi.org/10.1016/j.patter.2023.100779" target="_blank" rel="noopener">doi.org/10.1016/j.patter.2023.100779</a> <a class="back" href="#ref-21" aria-label="Back to the text">↩</a></li>
+    <li id="note-22" value="22"><span class="nn">22.</span> hooks, bell. <em>Teaching to Transgress: Education as the Practice of Freedom.</em> New York: Routledge, 1994. <a class="back" href="#ref-22" aria-label="Back to the text">↩</a></li>
+    <li class="note-group">Chapter 9</li>
+    <li id="note-23" value="23"><span class="nn">23.</span> Granovetter, Mark S. "The Strength of Weak Ties." <em>American Journal of Sociology</em> 78, no. 6 (1973): 1360–1380. <a class="back" href="#ref-23" aria-label="Back to the text">↩</a></li>
+    <li id="note-24" value="24"><span class="nn">24.</span> Rajkumar, Karthik, Guillaume Saint-Jacques, Iavor Bojinov, Erik Brynjolfsson, and Sinan Aral. "A Causal Test of the Strength of Weak Ties." <em>Science</em> 377, no. 6612 (2022): 1304–1310. <a href="https://doi.org/10.1126/science.abl4476" target="_blank" rel="noopener">doi.org/10.1126/science.abl4476</a> <a class="back" href="#ref-24" aria-label="Back to the text">↩</a></li>
+    <li id="note-25" value="25"><span class="nn">25.</span> Burt, Ronald S. <em>Structural Holes: The Social Structure of Competition.</em> Cambridge, MA: Harvard University Press, 1992. <a class="back" href="#ref-25" aria-label="Back to the text">↩</a></li>
+    <li class="note-group">Chapter 10</li>
+    <li id="note-26" value="26"><span class="nn">26.</span> Lee, Min Kyung, Daniel Kusbit, Evan Metsky, and Laura Dabbish. "Working with Machines: The Impact of Algorithmic and Data-Driven Management on Human Workers." In <em>Proceedings of the 33rd Annual ACM Conference on Human Factors in Computing Systems (CHI '15)</em>, 1603–1612. 2015. <a href="https://doi.org/10.1145/2702123.2702548" target="_blank" rel="noopener">doi.org/10.1145/2702123.2702548</a> <a class="back" href="#ref-26" aria-label="Back to the text">↩</a></li>
+    <li id="note-27" value="27"><span class="nn">27.</span> Zuboff, Shoshana. <em>The Age of Surveillance Capitalism: The Fight for a Human Future at the New Frontier of Power.</em> New York: PublicAffairs, 2019. <a class="back" href="#ref-27" aria-label="Back to the text">↩</a></li>
+    <li class="note-group">Chapter 11</li>
+    <li id="note-28" value="28"><span class="nn">28.</span> Heifetz, Ronald A. <em>Leadership Without Easy Answers.</em> Cambridge, MA: Belknap Press of Harvard University Press, 1994. <a class="back" href="#ref-28" aria-label="Back to the text">↩</a></li>
+    <li class="note-group">Chapter 12</li>
+    <li id="note-29" value="29"><span class="nn">29.</span> Center for Teaching and Learning, UNC Charlotte. "2026 AI Summit for Smarter Learning" (May 13, 2026). <a href="https://teaching.charlotte.edu/2026-ai-summit-for-smarter-learning/" target="_blank" rel="noopener">teaching.charlotte.edu</a> <a class="back" href="#ref-29" aria-label="Back to the text">↩</a></li>
+    <li id="note-30" value="30"><span class="nn">30.</span> Center for Teaching and Learning, UNC Charlotte. "AI Faculty Use Case Stories Collection." <a href="https://teaching.charlotte.edu/ai-stories-library/" target="_blank" rel="noopener">teaching.charlotte.edu/ai-stories-library</a> <a class="back" href="#ref-30" aria-label="Back to the text">↩</a></li>
+    <li id="note-31" value="31"><span class="nn">31.</span> "New AI Accelerator Will Sustain UNC Charlotte's Ahead-of-the-Curve Position in AI for Teaching and Learning." <em>Inside UNC Charlotte</em>, February 24, 2026. <a href="https://inside.charlotte.edu/2026/02/24/copy-of-new-ai-accelerator-will-sustain-unc-charlottes-ahead-of-the-curve-position-in-ai-for-teaching-and-learning/" target="_blank" rel="noopener">inside.charlotte.edu</a> <a class="back" href="#ref-31" aria-label="Back to the text">↩</a></li>
+  </ol>
+</section>
+
 <!-- ===================== FURTHER READING (pp. 58–59) ===================== -->
 <section class="back biblio" id="reading" data-title="Further Reading">
   <p class="eyebrow">Back matter</p>
@@ -2585,12 +2649,12 @@ main.page{overflow-x:clip}
       <li><span class="who">Arendt, Hannah.</span> <em>The Human Condition.</em> University of Chicago Press, 1958.</li>
       <li><span class="who">Braverman, Harry.</span> <em>Labor and Monopoly Capital: The Degradation of Work in the Twentieth Century.</em> Monthly Review Press, 1974.</li>
       <li><span class="who">Graeber, David.</span> <em>Bullshit Jobs: A Theory.</em> Simon &amp; Schuster, 2018.</li>
-      <li><span class="who">Taylor, Frederick Winslow.</span> <em>The Principles of Scientific Management.</em> 1911.</li>
+      <li><span class="who">Taylor, Frederick Winslow.</span> <em>The Principles of Scientific Management.</em> Harper &amp; Brothers, 1911.</li>
       <li><span class="who">Zuboff, Shoshana.</span> <em>The Age of Surveillance Capitalism.</em> PublicAffairs, 2019.</li>
     </ul>
     <h3>Learning and teaching</h3>
     <ul>
-      <li><span class="who">Freire, Paulo.</span> <em>Pedagogy of the Oppressed.</em> 1968; English translation 1970.</li>
+      <li><span class="who">Freire, Paulo.</span> <em>Pedagogy of the Oppressed.</em> 1968; English translation 1970 (Herder and Herder).</li>
       <li><span class="who">hooks, bell.</span> <em>Teaching to Transgress: Education as the Practice of Freedom.</em> Routledge, 1994.</li>
       <li><span class="who">Noddings, Nel.</span> <em>Caring: A Feminine Approach to Ethics and Moral Education.</em> University of California Press, 1984.</li>
       <li><span class="who">Mollick, Ethan.</span> <em>Co-Intelligence: Living and Working with AI.</em> Portfolio, 2024.</li>
@@ -2600,17 +2664,17 @@ main.page{overflow-x:clip}
       <li><span class="who">Benjamin, Ruha.</span> <em>Race After Technology: Abolitionist Tools for the New Jim Code.</em> Polity, 2019.</li>
       <li><span class="who">D'Ignazio, Catherine, and Lauren F. Klein.</span> <em>Data Feminism.</em> MIT Press, 2020.</li>
       <li><span class="who">Shneiderman, Ben.</span> <em>Human-Centered AI.</em> Oxford University Press, 2022.</li>
-      <li><span class="who">Winner, Langdon.</span> "Do Artifacts Have Politics?" <em>Daedalus</em> 109, no. 1 (1980).</li>
+      <li><span class="who">Winner, Langdon.</span> "Do Artifacts Have Politics?" <em>Daedalus</em> 109, no. 1 (1980): 121–136.</li>
     </ul>
     <h3>Self, voice, and networks</h3>
     <ul>
       <li><span class="who">Burt, Ronald S.</span> <em>Structural Holes: The Social Structure of Competition.</em> Harvard University Press, 1992.</li>
-      <li><span class="who">Goffman, Erving.</span> <em>The Presentation of Self in Everyday Life.</em> 1959.</li>
-      <li><span class="who">Granovetter, Mark.</span> "The Strength of Weak Ties." <em>American Journal of Sociology</em> 78, no. 6 (1973).</li>
+      <li><span class="who">Goffman, Erving.</span> <em>The Presentation of Self in Everyday Life.</em> Doubleday Anchor, 1959.</li>
+      <li><span class="who">Granovetter, Mark.</span> "The Strength of Weak Ties." <em>American Journal of Sociology</em> 78, no. 6 (1973): 1360–1380.</li>
     </ul>
     <h3>Leadership</h3>
     <ul>
-      <li><span class="who">Heifetz, Ronald A.</span> <em>Leadership Without Easy Answers.</em> Harvard University Press, 1994.</li>
+      <li><span class="who">Heifetz, Ronald A.</span> <em>Leadership Without Easy Answers.</em> Belknap Press of Harvard University Press, 1994.</li>
     </ul>
     <h3>UNC Charlotte program sources (accessed November 11, 2026)</h3>
     <ul>
@@ -2621,7 +2685,6 @@ main.page{overflow-x:clip}
       <li><a href="https://aihub.charlotte.edu/academics" target="_blank" rel="noopener">UNC Charlotte AI academics and initiatives</a></li>
     </ul>
   </div>
-  <div class="author-note">Real-world claims in Chapters 4, 6, 8, and 9 (sycophancy research, the 2018 Amazon recruiting tool report, the 2023 Stanford detector study, and the 2022 LinkedIn weak-ties study in <em>Science</em>) should be given full citations during copyediting.</div>
 </section>
 
 <!-- ===================== THE LIVING COLLECTION ===================== -->

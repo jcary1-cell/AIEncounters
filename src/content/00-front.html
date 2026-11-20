@@ -1,0 +1,170 @@
+<header class="topbar" id="topbar">
+  <a class="brand" href="#cover">AI Encounters<span>✎</span></a>
+  <span class="where" id="where">Cover</span>
+  <div class="actions">
+    <button class="tb-btn" id="open-toc" type="button" aria-controls="toc-drawer"><span aria-hidden="true">☰</span><span class="lbl">Contents</span></button>
+    <button class="tb-btn" id="open-gloss" type="button" aria-controls="gloss-drawer"><span aria-hidden="true">Aa</span><span class="lbl">Key terms</span></button>
+    <button class="tb-btn" id="open-kit" type="button" aria-controls="kit-drawer"><span aria-hidden="true">✓</span><span class="lbl">My toolkit</span></button>
+    <a class="tb-btn pen" href="#living"><span aria-hidden="true">+</span><span class="lbl">Share your encounter</span></a>
+  </div>
+  <div class="progress" id="progress"></div>
+</header>
+
+<nav class="rail" id="rail" aria-label="The threadline: reading progress">
+  <svg id="rail-svg" aria-hidden="true"></svg>
+</nav>
+
+<main class="page" id="top">
+
+<!-- ===================== COVER (pp. 1–2) ===================== -->
+<section class="cover" id="cover" aria-label="Cover">
+  <div class="holes" aria-hidden="true"><i></i><i></i><i></i></div>
+  <div class="ring" aria-hidden="true"></div>
+  <div class="cover-in">
+    <h1>
+      <span class="ai">AI</span>
+      <span class="enc mk blue" id="mk-title" data-seq="0">Encounters<svg viewBox="0 0 200 60" preserveAspectRatio="none" aria-hidden="true"><path pathLength="600" vector-effect="non-scaling-stroke" d="M40 10 C100 0 192 4 197 28 C201 50 120 61 60 56 C14 52 -2 38 6 22 C12 10 44 5 80 5"/></svg><span class="ann">what will yours be?</span></span>
+    </h1>
+    <p class="sub">Connecting Thinking, Learning, and Teaching With AI Across Disciplines</p>
+
+    <div class="machine" id="machine" aria-label="The machine's sentence, annotated by hand">
+      <span class="side-note" id="sn-decides" data-seq="6" style="left:clamp(-150px,-11vw,-60px);top:2.3em;transform:rotate(-6deg)">who<br>decides?</span>
+      Artificial intelligence is a transformative technology that will <span class="mk" data-seq="1"><span class="strike"></span><span class="ann">deepen understanding?</span>optimize productivity</span> and unlock <span class="mk blue" data-seq="2"><svg viewBox="0 0 200 60" preserveAspectRatio="none" aria-hidden="true"><path pathLength="600" vector-effect="non-scaling-stroke" d="M30 9 C90 -1 190 4 196 28 C200 50 120 60 60 56 C10 52 -2 36 8 20 C14 10 40 4 70 4"/></svg>unprecedented</span> efficiencies, <span class="side-note" data-seq="3" style="position:relative;display:inline-block;transform:rotate(-5deg);font-size:1.2em;line-height:1">says who?</span> delivering seamless, <span class="mk" data-seq="4"><span class="strike"></span><span class="ann">friction is the point!</span>frictionless</span> learning experiences for <span class="mk blue" data-seq="5"><svg viewBox="0 0 200 20" preserveAspectRatio="none" aria-hidden="true" style="inset:auto -4px -10px -4px;height:18px;width:calc(100% + 8px);top:auto"><path pathLength="600" vector-effect="non-scaling-stroke" d="M2 5 C60 3 140 7 198 4 M6 13 C70 11 130 15 194 12"/></svg>every student</span>, at scale.
+      <span class="side-note" id="sn-ask" data-seq="7" style="position:relative;display:block;margin-top:.2em;padding-left:3ch;transform:rotate(-2deg)">↳ ask them what they need <span class="heart">♡</span></span>
+    </div>
+
+    <p class="author">Justin R. Cary</p>
+
+    <div class="meta">
+      <div>
+        <p class="eyebrow">A field guide</p>
+        <p>A field guide for students, educators, and leaders who want to stay human, together, in the age of intelligent machines.</p>
+        <p class="mono" style="font-size:13px;margin-top:12px;color:var(--pen)">Five Acts · Twelve Encounters · Twelve Tools You Can Use Tomorrow</p>
+        <p class="mono" style="font-size:13px;margin-top:4px">Justin R. Cary · Human-Centered AI Program, UNC Charlotte</p>
+      </div>
+      <div>
+        <p class="quote">"No matter how sophisticated these systems become, they remain mirrors of human pasts. What we do with the reflection is still up to us."</p>
+      </div>
+    </div>
+    <div class="cta">
+      <a class="btn solid" href="#how-to-use">Start reading →</a>
+      <a class="btn" href="#contents">See the five acts</a>
+      <a class="btn redb" href="#living">Add your encounter to the living collection</a>
+      <button class="btn small" type="button" id="replay-cover" style="border-style:dashed">↺ Replay the edit</button>
+    </div>
+    <p class="colophon">This book was created collaboratively between humans and machines.</p>
+  </div>
+</section>
+
+<!-- ===================== CONTENTS (p. 3) ===================== -->
+<section class="front" id="contents" data-title="Contents">
+  <p class="eyebrow">Contents</p>
+  <h2>Five acts move from the self outward to the institution</h2>
+  <div class="prose">
+    <p>The journey starts with the individual worker and learner, moves into the mind and the classroom, then out to the job market and the institutions that shape us all. Front matter: How to Use This Book · Preface. Back matter: Postscript (Program Blueprint and Implementation Guide) · Coda · Further Reading.</p>
+  </div>
+  <p class="caption" style="margin-top:8px">The book at a glance · 5 acts, 12 chapters, 12 tools · <span class="hand" style="font-size:19px;color:var(--red)">tap a ring</span></p>
+  <div class="contents">
+    <svg class="rings" id="rings" viewBox="0 0 420 420" role="img" aria-label="Five concentric rings: the self at the center, the institution at the edge"></svg>
+    <div class="acts-list" id="acts-list">
+      <div class="act-row" data-act="1"><div><div class="an">ACT I</div><div class="at">The Disruption of Meaning</div><div class="as">History, labor, and the self</div></div>
+        <ul><li><a href="#ch1">Ch. 1 · The Ghost in the Mill</a><span>Labor-to-Craft Audit</span></li><li><a href="#ch2">Ch. 2 · The Anatomy of Meaningful Work</a><span>Meaningful Work Matrix</span></li><li><a href="#ch3">Ch. 3 · The Architecture of Friction</a><span>Cognitive Friction Canvas</span></li></ul></div>
+      <div class="act-row" data-act="2"><div><div class="an">ACT II</div><div class="at">The Cognitive Sanctuary</div><div class="as">Thinking, fluency, and inquiry</div></div>
+        <ul><li><a href="#ch4">Ch. 4 · The Sparring Partner</a><span>Dialectical Sparring Protocol</span></li><li><a href="#ch5">Ch. 5 · Unmasking the Oracle</a><span>Architectural Co-Design Canvas</span></li><li><a href="#ch6">Ch. 6 · Reading the Hidden Code</a><span>Algorithmic Provenance Audit</span></li></ul></div>
+      <div class="act-row" data-act="3"><div><div class="an">ACT III</div><div class="at">The Relational Commons</div><div class="as">Voice, presence, and community</div></div>
+        <ul><li><a href="#ch7">Ch. 7 · The Sovereign Voice</a><span>Sovereign Voice Index</span></li><li><a href="#ch8">Ch. 8 · The Architecture of the Handshake</a><span>Syllabus as Handshake</span></li></ul></div>
+      <div class="act-row" data-act="4"><div><div class="an">ACT IV</div><div class="at">The Market and the Self</div><div class="as">Careers and labor power</div></div>
+        <ul><li><a href="#ch9">Ch. 9 · The Human Bridge</a><span>Tie-Brokerage Map</span></li><li><a href="#ch10">Ch. 10 · Standing in the Arena</a><span>Value Advocacy Playbook</span></li></ul></div>
+      <div class="act-row" data-act="5"><div><div class="an">ACT V</div><div class="at">The Institutional Frontier</div><div class="as">Leading, convening, scaling</div></div>
+        <ul><li><a href="#ch11">Ch. 11 · Leading Through the Fog</a><span>Agile Task Force Canvas</span></li><li><a href="#ch12">Ch. 12 · The Gathering Ground</a><span>Accelerator Sandbox Template</span></li></ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== HOW TO USE (pp. 4–5) ===================== -->
+<section class="front" id="how-to-use" data-title="How to Use This Book">
+  <p class="eyebrow">Front matter</p>
+  <h2>How to Use This Book</h2>
+  <div class="cols">
+    <div class="prose">
+      <p>This book treats artificial intelligence as an encounter, not a product manual. You will not find step-by-step instructions for a specific app here, because apps change every few months. Instead, you will find stories, ideas, and tools that help you decide how and whether to use AI in ways that keep your thinking sharp and your relationships real.</p>
+    </div>
+    <aside class="margin" aria-hidden="true"><p class="note">an encounter, not a manual.</p></aside>
+  </div>
+  <h3>Every chapter follows the same four-part rhythm</h3>
+  <div class="rhythm" role="table" aria-label="The four-part rhythm">
+    <div role="row"><span class="n">1</span><h4 role="cell">The Encounter</h4><p role="cell">A short story about a real-feeling person facing an AI moment. It puts you inside the problem before any theory arrives.</p><span class="bar"><i style="width:8%"></i></span><span class="t" role="cell">5 minutes</span></div>
+    <div role="row"><span class="n">2</span><h4 role="cell">The Human-Centered Inquiry</h4><p role="cell">The big ideas. Thinkers from philosophy, sociology, education, and computer science help explain what is really happening in the story.</p><span class="bar"><i style="width:50%"></i></span><span class="t" role="cell">20–30 minutes</span></div>
+    <div role="row"><span class="n">3</span><h4 role="cell">The Core Competency</h4><p role="cell">Connects the chapter to one of the career-readiness competencies employers ask for most, so the ideas travel beyond the classroom.</p><span class="bar"><i style="width:8%"></i></span><span class="t" role="cell">5 minutes</span></div>
+    <div role="row"><span class="n">4</span><h4 role="cell">The Signature Tool</h4><p role="cell">A worksheet, canvas, or protocol you can use right away, alone or with a group.</p><span class="bar"><i style="width:100%"></i></span><span class="t" role="cell">30–60 minutes</span></div>
+  </div>
+  <div class="prose"><p>Each chapter closes with Key Terms, Questions for Discussion, and a Try This activity that takes the tool into real life.</p></div>
+
+  <p class="hand" style="font-size:26px;color:var(--pen);margin:28px 0 0">Who are you, reading this?</p>
+  <div class="paths" role="group" aria-label="Choose your reading path">
+    <button class="chip" type="button" data-path="student" aria-pressed="true">I'm a student</button>
+    <button class="chip" type="button" data-path="instructor" aria-pressed="false">I'm an instructor</button>
+    <button class="chip" type="button" data-path="leader" aria-pressed="false">I lead a department or institution</button>
+    <button class="chip" type="button" data-path="curious" aria-pressed="false">I'm simply curious</button>
+  </div>
+  <div class="prose">
+    <div class="path-panel" data-panel="student">
+      <h3>If you are a student</h3>
+      <p>Read the Encounter first and ask yourself whether it has happened to you. Then fill in the Signature Tool honestly, using your own coursework or job search. The tools are designed to be kept: many readers build a portfolio from them that they can show in interviews.</p>
+      <div class="route"><span class="hand" style="font-size:19px;color:var(--red)">your route:</span><a href="#ch1">Encounter</a><span class="arr">→</span><a href="#ch1-tool">Signature Tool</a><span class="arr">→</span><a href="#" data-open="kit">My toolkit (your portfolio)</a></div>
+    </div>
+    <div class="path-panel" data-panel="instructor" hidden>
+      <h3>If you are an instructor</h3>
+      <p>The book maps onto a 15-week semester: one chapter per week, plus an orientation week, a midterm workshop, and a final showcase. The five Acts also work as standalone units, so a writing course might use only Act III, while a career-development seminar might use Acts I and IV. The Postscript explains how to adapt each tool for general education, capstones, and career centers.</p>
+      <div class="route"><span class="hand" style="font-size:19px;color:var(--red)">your route:</span><a href="#act3">Act III for writing</a><a href="#act1">Acts I</a><span class="arr">+</span><a href="#act4">IV for careers</a><span class="arr">→</span><a href="#implementation">Postscript</a></div>
+    </div>
+    <div class="path-panel" data-panel="leader" hidden>
+      <h3>If you lead a department or institution</h3>
+      <p>Start with Act V, then return to Act I. The leadership chapters make the most sense once you have seen how AI feels from the student's and worker's side of the desk.</p>
+      <div class="route"><span class="hand" style="font-size:19px;color:var(--red)">your route:</span><a href="#act5">Act V</a><span class="arr">→</span><a href="#act1">Act I</a></div>
+    </div>
+    <div class="path-panel" data-panel="curious" hidden>
+      <h3>If you are simply curious</h3>
+      <p>Read it straight through. The book is built as a journey: from the history of work, into the mind, out into relationships, onto the job market, and finally into the institutions that shape all of us.</p>
+      <div class="route"><span class="hand" style="font-size:19px;color:var(--red)">your route:</span><a href="#act1">I</a><span class="arr">→</span><a href="#act2">II</a><span class="arr">→</span><a href="#act3">III</a><span class="arr">→</span><a href="#act4">IV</a><span class="arr">→</span><a href="#act5">V</a></div>
+    </div>
+    <h3>A note on the stories</h3>
+    <p>The Encounters are composite scenarios drawn from common experiences in classrooms and workplaces. Names and details are illustrative. They are meant to feel familiar, because some version of each one is happening somewhere right now.</p>
+    <p class="hand" style="font-size:24px;color:var(--pen);transform:rotate(-1deg)">…and some version is happening to you. <a href="#living">Add yours to the living collection →</a></p>
+  </div>
+</section>
+
+<!-- ===================== PREFACE (pp. 5–7) ===================== -->
+<section class="front" id="preface" data-title="Preface: Your First Encounter">
+  <p class="eyebrow">Preface</p>
+  <h2>Your First Encounter</h2>
+  <div class="cols">
+    <div class="prose">
+      <p class="big-q" style="margin-top:0">If you are reading this book, you have already had an AI encounter. Probably several.</p>
+      <h3>If you are an educator</h3>
+      <p>Maybe your encounter was a moment of shock, the afternoon you first saw what generative AI could do. Maybe it came while reading a book like Ethan Mollick's <em>Co-Intelligence</em>, when you felt a sharp pinpoint of fear and excitement at the same time. Or maybe it arrived quietly: a student essay, a slide deck, or a website that felt a little off. Uncanny, in a way you could not quite name.</p>
+      <p>Whatever it looked like, it probably left you with questions about connection. How do you connect with students through assessment, course design, and feedback when both sides can generate those things in seconds? How do you link the work of your discipline to the skills students will need after graduation? How can educators think, learn, and teach with AI ethically and intentionally, so that it deepens human connection instead of bypassing it?</p>
+      <h3>If you are a student</h3>
+      <p>Your encounters may look different. Maybe one came late at night, up against a deadline, when you just needed the assignment done and were not sure why it had been assigned in the first place. Maybe it came the first time you spoke to your phone and it answered like a person. Maybe it was the familiar search engine reshaping itself into something new: an ask instead of a search.</p>
+      <p>Or maybe your encounter was a feeling in your gut. A stirring that told you there was something important to hold on to, something worth preserving about yourself and the world you are walking into.</p>
+      <p>You may be asking: What is my education worth when answers, knowledge, and even thinking itself are a few prompts away? How do I connect with mentors when they can generate feedback as easily as I can generate essays? What happens to friendship, community, and life both online and in real life as more of the world runs through artificial tools?</p>
+      <h3>If you are a leader</h3>
+      <p>Your questions are about scale. How do you build trust with stakeholders, create genuine buy-in, and shape a future where everyone feels heard, valued, and able to take part in decisions?</p>
+      <h3>What this book offers</h3>
+      <p>Across these pages, we treat AI as a matter of design: something we shape on purpose, rather than something that simply happens to us. We explore how to build learning experiences that strengthen seven connection points:</p>
+    </div>
+    <aside class="margin" aria-hidden="true">
+      <p class="note">late at night, up against a deadline…</p>
+      <p class="note red">sound familiar?</p>
+      <p class="note">an ask instead of a search.</p>
+    </aside>
+  </div>
+  <ol class="seven">
+    <li>Human connection</li><li>Critical thinking</li><li>Problem solving</li><li>Hands-on, experiential use of AI</li><li>Career readiness</li><li>Discernment</li><li>Ethics</li>
+  </ol>
+  <div class="prose">
+    <p>We also share the story of the Human-Centered AI program at UNC Charlotte, an interdisciplinary B.A. major and Artificial Intelligence minor rooted in the humanities and social sciences. It serves as a roadmap for educators, administrators, and leaders who want to build something similar. And we share stories from students who are learning about AI, working with it, and applying it to real problems, becoming decision makers and ethical stewards rather than passive users.</p>
+    <p>Like a thread weaving between us, this is a story about bringing people together to think, work, play, explore, learn, design, and build alongside a technology that will change our world.</p>
+    <p class="big-q">To thrive on the journey ahead, we need to meet AI in new ways and use each encounter to remind us how to stay connected.</p>
+  </div>
+</section>

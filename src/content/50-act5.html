@@ -1,0 +1,309 @@
+<!-- ===================== ACT V ===================== -->
+<section class="act" id="act5" data-title="Act V: The Institutional Frontier" data-act="5">
+  <div class="act-card">
+    <span class="roman" aria-hidden="true">V</span>
+    <p class="eyebrow">Act V</p>
+    <h2>The Institutional Frontier</h2>
+    <p class="tag">Leading, Convening, and Scaling</p>
+    <p>Individuals can change how they use AI. Institutions decide the conditions under which everyone else does. Act V is written for anyone who leads, from a department chair to a provost to a student government president, and for anyone who wants to understand how leaders should act.</p>
+    <p>Chapter 11 argues that, in a period of fast and uncertain change, trust outperforms mandates. Chapter 12 makes the case for the oldest leadership tool there is: bringing people into the same room.</p>
+    <p>By the end of Act V, you will have two blueprints for building human-centered AI culture at the scale of an entire institution.</p>
+    <div class="ch-links"><a href="#ch11">11 · Leading Through the Fog</a><a href="#ch12">12 · The Gathering Ground</a></div>
+  </div>
+</section>
+
+<!-- ===================== CHAPTER 11 ===================== -->
+<article class="chapter" id="ch11" data-ch="11" data-title="Chapter 11: Leading Through the Fog">
+  <header class="ch-head">
+    <span class="num" aria-hidden="true">11</span>
+    <span class="kick">Chapter 11 · Act V</span>
+    <h2>Leading Through the Fog</h2>
+    <span class="subt">Shared Governance, Risk, and Ecosystem Leadership</span>
+  </header>
+  <div class="will"><b>In this chapter you will:</b><ul><li>see why top-down bans on AI tend to fail</li><li>learn how shared governance builds durable institutional decisions</li><li>use the Agile Task Force Canvas to launch a cross-campus AI council.</li></ul></div>
+
+  <div class="part" data-part="encounter">
+    <div class="part-label"><span class="pn">i.</span><h3>The Encounter</h3><span class="tm">5 minutes</span></div>
+    <div class="encounter" data-ch="11">
+      <p>The spring that generative AI arrives on campus, the provost's inbox fills overnight. Faculty demand a ban. Students demand access. The IT office warns about data privacy. The general counsel asks about liability. A board member forwards a news article with the subject line <span class="thought">Are we behind?</span></p>
+      <p>The easiest move is a campus-wide email: <span class="thought">Effective immediately, the use of generative AI tools in coursework is prohibited.</span> A draft sits in the provost's outbox.</p>
+      <p>She does not send it. Instead, she calls together a task force: faculty from every college, staff from IT and the library, student government representatives, legal counsel, and the teaching center. Their charge is not to write rules overnight. It is to listen, experiment, and recommend principles that can evolve.</p>
+      <p>Six months later, the campus has guidelines that faculty actually use, because faculty helped write them. The ban would have been obsolete within a semester.</p>
+    </div>
+    <div class="figure">
+      <div class="fig-t">The provost's inbox <span class="try-it">what would you do with the draft?</span></div>
+      <div class="inbox" id="inbox">
+        <div class="ih"><span>Inbox · Office of the Provost</span><span id="inbox-n">0 unread</span></div>
+        <div class="msg"><span class="f">Faculty Senate</span><span class="s">We need a ban on generative AI, now</span></div>
+        <div class="msg"><span class="f">Student Government</span><span class="s">Students need access to these tools</span></div>
+        <div class="msg"><span class="f">IT Office</span><span class="s">Data privacy warning: generative AI</span></div>
+        <div class="msg"><span class="f">General Counsel</span><span class="s">Question re: liability</span></div>
+        <div class="msg"><span class="f">Board member</span><span class="s">Fwd: Are we behind?</span></div>
+        <div class="draft" id="draft">
+          <div class="lbl">Draft · Outbox · not sent</div>
+          <div class="body">To: All campus · Effective immediately, the use of generative AI tools in coursework is prohibited.</div>
+          <div class="alt">→ call together a task force: listen, experiment, recommend principles that can evolve.</div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn small" type="button" id="draft-send">Send to all campus</button><button class="btn small solid" type="button" id="draft-hold">Don't send. Convene instead.</button></div>
+          <p id="draft-msg" class="hand" style="font-size:22px;color:var(--red);margin:10px 0 0;min-height:28px"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="part inq" data-part="inquiry">
+    <div class="part-label"><span class="pn">ii.</span><h3>The Human-Centered Inquiry</h3><span class="tm">20–30 minutes</span></div>
+    <div class="prose">
+      <h4>Why mandates fail in the fog</h4>
+      <p>In stable conditions, clear rules work well. But AI is changing faster than policy cycles. A mandate written in March may be out of date by August, when new tools appear that it never imagined.</p>
+      <p>Top-down bans also carry hidden costs:</p>
+      <ul class="dots">
+        <li>They are hard to enforce, which pushes use underground and invites the surveillance problems of Chapter 8.</li>
+        <li>They ignore disciplinary difference. What makes sense in a first-year writing course may make no sense in a data science lab.</li>
+        <li>They erode trust, signaling that leaders see faculty and students as risks to manage rather than partners to involve.</li>
+      </ul>
+      <h4>Leading through trust</h4>
+      <p>Leadership scholars distinguish between <strong>technical problems</strong>, which have known solutions experts can apply, and <strong>adaptive challenges</strong>, which require people to learn, change values or habits, and invent new approaches. The leadership scholar Ronald Heifetz developed this distinction. AI in education is an adaptive challenge. No one has the answer yet.</p>
+      <p>Adaptive challenges call for a different kind of leadership: setting direction, protecting space for experimentation, and helping people learn together, rather than handing down solutions.</p>
+      <h4>Shared governance as a strength</h4>
+      <p>Universities have a long tradition of <strong>shared governance</strong>: faculty, administrators, and often staff and students share responsibility for major decisions. It is sometimes criticized as slow. In a period of uncertainty, it can be an advantage, because decisions made together are understood more widely, adopted more readily, and corrected faster.</p>
+      <h4>Connecting the silos</h4>
+      <p>AI touches every part of an institution at once. Consider who has a stake.</p>
+    </div>
+    <div class="figure">
+      <div class="fig-t">Unit · Its central AI concern <span class="try-it">bring each unit to the table</span></div>
+      <div class="silos" id="silos">
+        <button class="silo" type="button" aria-pressed="false"><b>Academic Affairs</b><span>Curriculum, academic integrity, faculty development</span></button>
+        <button class="silo" type="button" aria-pressed="false"><b>Information Technology</b><span>Security, privacy, licensing, infrastructure</span></button>
+        <button class="silo" type="button" aria-pressed="false"><b>Student Affairs</b><span>Student wellbeing, equity of access, career readiness</span></button>
+        <button class="silo" type="button" aria-pressed="false"><b>Library</b><span>Information literacy, research integrity, copyright</span></button>
+        <button class="silo" type="button" aria-pressed="false"><b>Legal and compliance</b><span>Privacy law, intellectual property, accessibility, contracts</span></button>
+        <button class="silo" type="button" aria-pressed="false"><b>Teaching center</b><span>Course design, pedagogy, training</span></button>
+        <button class="silo" type="button" aria-pressed="false"><b>Individual departments</b><span>Disciplinary norms and professional standards</span></button>
+      </div>
+      <p class="silo-meter" id="silo-meter" aria-live="polite">0 of 7 at the table. Every office is working alone.</p>
+    </div>
+    <div class="prose">
+      <p>No single office can address all of these. An effective AI council is, above all, a bridge between silos: the institutional version of Chapter 9's broker.</p>
+    </div>
+  </div>
+
+  <div class="part" data-part="competency">
+    <div class="part-label"><span class="pn">iii.</span><h3>The Core Competency: Leadership</h3><span class="tm">5 minutes</span></div>
+    <div class="competency prose">
+      <span class="badge">Core competency · Leadership</span>
+      <p><strong>This competency is about inspiring people around a shared vision, drawing on diverse perspectives, and managing complex initiatives with creativity.</strong> In uncertain times, a leader's most important job may be to make it safe for others to think out loud.</p>
+    </div>
+  </div>
+
+  <div class="part tool" data-part="tool" id="ch11-tool">
+    <div class="part-label"><span class="pn">iv.</span><h3>Signature Tool: The Agile Task Force Canvas</h3><span class="tm">30–60 minutes</span></div>
+    <div class="worksheet" data-tool="Agile Task Force Canvas" data-ch="11">
+      <div class="ws-head"><span class="stamp">Signature Tool</span><span class="saved" data-saved>autosaves in this browser</span></div>
+      <p>Use this canvas to design a cross-functional AI council for a campus, college, department, or organization.</p>
+      <p class="step"><span class="sn">Block 1:</span>Purpose.</p>
+      <ul class="dots prose" style="max-width:none">
+        <li>What question is this group convened to answer?<textarea rows="2" data-save="ch11.b1.q" aria-label="Convened question"></textarea></li>
+        <li>What decisions will it make, and what will it only recommend?<textarea rows="2" data-save="ch11.b1.d" aria-label="Decisions vs recommendations"></textarea></li>
+        <li>How long is its initial charge? (Six to twelve months is a common starting point.)<input type="text" data-save="ch11.b1.len" aria-label="Initial charge length"></li>
+      </ul>
+      <p class="step"><span class="sn">Block 2:</span>Membership.</p>
+      <p>Aim for a group small enough to talk and broad enough to represent the institution.</p>
+      <div class="tbl-wrap"><table class="t">
+        <thead><tr><th>Seat</th><th>Who fills it</th><th>Why their voice is essential</th></tr></thead>
+        <tbody id="seats">
+          <tr><td>Faculty, at least one per college</td><td><input type="text" data-save="ch11.seat.fac.who" aria-label="Faculty: who"></td><td><input type="text" data-save="ch11.seat.fac.why" aria-label="Faculty: why"></td></tr>
+          <tr><td>Students, undergraduate and graduate</td><td><input type="text" data-save="ch11.seat.stu.who" aria-label="Students: who"></td><td><input type="text" data-save="ch11.seat.stu.why" aria-label="Students: why"></td></tr>
+          <tr><td>IT and security</td><td><input type="text" data-save="ch11.seat.it.who" aria-label="IT: who"></td><td><input type="text" data-save="ch11.seat.it.why" aria-label="IT: why"></td></tr>
+          <tr><td>Library</td><td><input type="text" data-save="ch11.seat.lib.who" aria-label="Library: who"></td><td><input type="text" data-save="ch11.seat.lib.why" aria-label="Library: why"></td></tr>
+          <tr><td>Legal / compliance</td><td><input type="text" data-save="ch11.seat.legal.who" aria-label="Legal: who"></td><td><input type="text" data-save="ch11.seat.legal.why" aria-label="Legal: why"></td></tr>
+          <tr><td>Teaching and learning center</td><td><input type="text" data-save="ch11.seat.ctl.who" aria-label="Teaching center: who"></td><td><input type="text" data-save="ch11.seat.ctl.why" aria-label="Teaching center: why"></td></tr>
+          <tr><td>Accessibility services</td><td><input type="text" data-save="ch11.seat.acc.who" aria-label="Accessibility: who"></td><td><input type="text" data-save="ch11.seat.acc.why" aria-label="Accessibility: why"></td></tr>
+          <tr><td>Staff from student-facing offices</td><td><input type="text" data-save="ch11.seat.staff.who" aria-label="Staff: who"></td><td><input type="text" data-save="ch11.seat.staff.why" aria-label="Staff: why"></td></tr>
+        </tbody>
+      </table></div>
+      <p class="step"><span class="sn">Block 3:</span>Listening.</p>
+      <p>How will the council hear from people who are not in the room? Examples: listening sessions, surveys, open forums, an anonymous comment form.</p>
+      <textarea rows="2" data-save="ch11.b3" aria-label="Listening plan"></textarea>
+      <p class="step"><span class="sn">Block 4:</span>Experiments.</p>
+      <p>What small pilots will the council run or support before setting policy? Who reports back, and when?</p>
+      <textarea rows="2" data-save="ch11.b4" aria-label="Experiments"></textarea>
+      <p class="step"><span class="sn">Block 5:</span>Principles before rules.</p>
+      <p>Draft three to five guiding principles first. Detailed rules can follow and change. Example principle: "Instructors decide how AI is used in their courses, and they explain their reasons to students."</p>
+      <input type="text" data-save="ch11.p1" aria-label="Principle 1" placeholder="Principle 1">
+      <input type="text" data-save="ch11.p2" aria-label="Principle 2" placeholder="Principle 2">
+      <input type="text" data-save="ch11.p3" aria-label="Principle 3" placeholder="Principle 3">
+      <input type="text" data-save="ch11.p4" aria-label="Principle 4" placeholder="Principle 4 (optional)">
+      <input type="text" data-save="ch11.p5" aria-label="Principle 5" placeholder="Principle 5 (optional)">
+      <p class="step"><span class="sn">Block 6:</span>Communication rhythm.</p>
+      <p>How often will the council share updates, and through which channels?</p>
+      <textarea rows="2" data-save="ch11.b6" aria-label="Communication rhythm"></textarea>
+      <p class="step"><span class="sn">Block 7:</span>Review date.</p>
+      <p>When will the council revisit its own principles? Put it on the calendar now.</p>
+      <input type="text" data-save="ch11.b7" aria-label="Review date" placeholder="our review date">
+      <div class="ws-actions"><button class="btn small" type="button" data-copy-tool>Copy my canvas</button><button class="btn small" type="button" data-clear-tool style="border-style:dashed">Clear</button></div>
+    </div>
+  </div>
+
+  <div class="part" data-part="terms">
+    <div class="part-label"><h3>Key Terms</h3></div>
+    <dl class="terms">
+      <div><dt>Adaptive challenge</dt><dd>a problem that requires learning and change, not just expert solutions.</dd></div>
+      <div><dt>Shared governance</dt><dd>joint decision-making among faculty, administration, and others.</dd></div>
+      <div><dt>Silo</dt><dd>a unit that operates in isolation from others.</dd></div>
+    </dl>
+  </div>
+  <div class="part" data-part="questions">
+    <div class="part-label"><h3>Questions for Discussion</h3></div>
+    <ol class="qs" data-ch="11">
+      <li>When is a quick, top-down decision the right one? When is it not?</li>
+      <li>Who in your institution is most affected by AI policy but least represented in making it?</li>
+      <li>Write one guiding principle for AI at your school. Defend it.</li>
+    </ol>
+  </div>
+  <div class="part" data-part="try">
+    <div class="try" data-ch="11"><div class="part-label" style="margin-bottom:8px"><h3>Try This</h3></div>
+      <p>Find your institution's current AI policy or guidance. Using the Canvas, identify which voices helped shape it and which were missing. Propose one change to the process.</p></div>
+  </div>
+</article>
+
+<!-- ===================== CHAPTER 12 ===================== -->
+<article class="chapter" id="ch12" data-ch="12" data-title="Chapter 12: The Gathering Ground">
+  <header class="ch-head">
+    <span class="num" aria-hidden="true">12</span>
+    <span class="kick">Chapter 12 · Act V</span>
+    <h2>The Gathering Ground</h2>
+    <span class="subt">Fostering Innovation and the UNC Charlotte Model</span>
+  </header>
+  <div class="will"><b>In this chapter you will:</b><ul><li>understand why physical gathering is a powerful leadership tool in an automated age</li><li>see how one university built an ecosystem for AI in teaching</li><li>use the Accelerator Sandbox Template to design faculty programs and campus summits of your own.</li></ul></div>
+
+  <div class="part" data-part="encounter">
+    <div class="part-label"><span class="pn">i.</span><h3>The Encounter</h3><span class="tm">5 minutes</span></div>
+    <div class="encounter" data-ch="12">
+      <p>A philosophy professor, a mechanical engineering professor, and a computer scientist sit at the same round table at a campus AI summit. They have worked at the same university for a combined fifty years. They have never had a conversation.</p>
+      <p>The session prompt asks each table to share one assignment AI has "broken." The philosopher describes a take-home essay. The engineer describes a design report. The computer scientist describes an intro coding lab. Within ten minutes, they realize they are facing the same problem: students can now produce the artifact without developing the judgment the artifact was meant to show.</p>
+      <p>By the end of lunch, they have sketched a shared approach, the oral defense of design choices, that each will adapt in their own course. Over the next year, they keep meeting. A twenty-year-old wall between their departments develops a door.</p>
+    </div>
+  </div>
+
+  <div class="part inq" data-part="inquiry">
+    <div class="part-label"><span class="pn">ii.</span><h3>The Human-Centered Inquiry</h3><span class="tm">20–30 minutes</span></div>
+    <div class="prose">
+      <h4>Why the room still matters</h4>
+      <p>In an age of video calls and AI-generated summaries, gathering people in the same physical space can seem old-fashioned. It is not. Shared physical presence produces things that are hard to get any other way:</p>
+      <ul class="dots">
+        <li><strong>Serendipity:</strong> unplanned conversations between people who would never have scheduled a meeting</li>
+        <li><strong>Trust:</strong> reading faces, sharing meals, and seeing colleagues as whole people</li>
+        <li><strong>Momentum:</strong> the energy of seeing that many others care about the same problem</li>
+        <li><strong>Permission:</strong> a visible signal from the institution that experimentation is valued</li>
+      </ul>
+      <p>The more work is mediated by machines, the more valuable face-to-face gathering becomes. It is the institutional version of Chapter 8's handshake.</p>
+      <h4>The UNC Charlotte ecosystem</h4>
+      <p>UNC Charlotte offers one example of how an institution can build a human-centered AI culture through layered, connected initiatives. Each piece serves a different purpose, and together they form an ecosystem rather than a single program.</p>
+    </div>
+    <div class="ecos">
+      <div class="eco"><h5><a href="https://teaching.charlotte.edu/2026-ai-summit-for-smarter-learning/" target="_blank" rel="noopener" style="color:inherit;text-decoration-color:var(--line)">Charlotte AI Summit for Smarter Learning <span aria-hidden="true" style="font-family:var(--f-mono);font-size:12px;color:var(--pen)">↗</span></a></h5><p>An annual gathering, hosted by the Center for Teaching and Learning (CTL), where faculty, staff, students, and partners share AI teaching practices. The fourth annual summit took place in May 2026.</p></div>
+      <div class="eco"><h5>AI Faculty Fellows</h5><p>Faculty appointed by the CTL to lead events, support colleagues, and champion AI across the curriculum.</p></div>
+      <div class="eco"><h5><a href="https://teaching.charlotte.edu/ai-stories-library/" target="_blank" rel="noopener" style="color:inherit;text-decoration-color:var(--line)">AI Faculty Use Case Stories Collection <span aria-hidden="true" style="font-family:var(--f-mono);font-size:12px;color:var(--pen)">↗</span></a></h5><p>A published collection of 80 first-person faculty stories about teaching with AI, from initial skepticism to classroom redesign.</p></div>
+      <div class="eco"><h5>AI Task Force and AI Steering Committee</h5><p>Cross-campus bodies that guide responsible and ethical AI adoption and issue recommendations.</p></div>
+      <div class="eco"><h5><a href="https://teaching.charlotte.edu/ai-accelerator-in-teaching-and-learning/" target="_blank" rel="noopener" style="color:inherit;text-decoration-color:var(--line)">AI Accelerator in Teaching and Learning <span aria-hidden="true" style="font-family:var(--f-mono);font-size:12px;color:var(--pen)">↗</span></a></h5><p>A cross-divisional leadership team, launched in 2026, that turns task force recommendations into action. Its work is described as "accelerating, enabling and stewarding." Members come from the CTL, the faculty, the library, and legal affairs.</p></div>
+      <div class="eco"><h5><a href="https://interdisciplinarystudies.charlotte.edu/human-centered-ai/" target="_blank" rel="noopener" style="color:inherit;text-decoration-color:var(--line)">Human-Centered AI concentration and AI Fundamentals minor <span aria-hidden="true" style="font-family:var(--f-mono);font-size:12px;color:var(--pen)">↗</span></a></h5><p>Academic programs that bring AI literacy into the humanities and social sciences (see the <a href="#postscript">Postscript</a>).</p></div>
+    </div>
+    <div class="author-note">Add your own first-hand account here: how these initiatives began, what faculty and students said, what failed, and what changed. Confirm details such as faculty stipends and funding before publication.</div>
+    <div class="prose">
+      <h4>Safe spaces to fail</h4>
+      <p>The most important feature of any accelerator is not funding. It is <strong>permission to fail</strong>. Faculty are often evaluated on polished outcomes, which discourages risky experiments. A good accelerator protects time, offers support, and celebrates honest reports of what did not work, because those reports teach colleagues the most.</p>
+      <h4>From events to culture</h4>
+      <p>A single summit can inspire people. Culture forms when gatherings repeat, connect to ongoing programs, and produce visible results. The cycle looks like this:</p>
+    </div>
+    <div class="figure">
+      <div class="fig-t">From events to culture <span class="try-it">the cycle turns on its own; tap a step</span></div>
+      <div class="cycle">
+        <svg id="cycle-svg" viewBox="0 0 380 380" aria-hidden="true"></svg>
+        <ol id="cycle-list">
+          <li>Gather people across boundaries.</li>
+          <li>Experiment in real courses with support.</li>
+          <li>Share results, including failures, publicly.</li>
+          <li>Recognize contributors.</li>
+          <li>Institutionalize what works in policy, curriculum, and budgets.</li>
+          <li>Gather again, with a larger and more experienced community.</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+
+  <div class="part" data-part="competency">
+    <div class="part-label"><span class="pn">iii.</span><h3>The Core Competency: Leadership</h3><span class="tm">5 minutes</span></div>
+    <div class="competency prose">
+      <span class="badge">Core competency · Leadership</span>
+      <p>Here, <strong>leadership means building trust, serving as a role model, motivating teams toward shared excellence, and creating lasting spaces for experimentation.</strong> The most effective leaders in this chapter are not the ones with the best answers. They are the ones who build the room where answers get found.</p>
+    </div>
+  </div>
+
+  <div class="part tool" data-part="tool" id="ch12-tool">
+    <div class="part-label"><span class="pn">iv.</span><h3>Signature Tool: The Accelerator Sandbox Template</h3><span class="tm">30–60 minutes</span></div>
+    <div class="worksheet" data-tool="Accelerator Sandbox Template" data-ch="12">
+      <div class="ws-head"><span class="stamp">Signature Tool</span><span class="saved" data-saved>autosaves in this browser</span></div>
+      <p class="step"><span class="sn">Part A:</span>Faculty teaching accelerator.</p>
+      <div class="tbl-wrap"><table class="t">
+        <thead><tr><th>Design element</th><th>Questions to decide</th><th>Our plan</th></tr></thead>
+        <tbody>
+          <tr><td>Cohort</td><td>How many participants? From which disciplines? How are they selected?</td><td><textarea rows="2" data-save="ch12.a.cohort" aria-label="Cohort plan"></textarea></td></tr>
+          <tr><td>Support</td><td>Stipend, course release, instructional design help, or recognition?</td><td><textarea rows="2" data-save="ch12.a.support" aria-label="Support plan"></textarea></td></tr>
+          <tr><td>Time frame</td><td>One semester? One year?</td><td><textarea rows="2" data-save="ch12.a.time" aria-label="Time frame plan"></textarea></td></tr>
+          <tr><td>Project</td><td>Will each participant redesign one course, assignment, or assessment?</td><td><textarea rows="2" data-save="ch12.a.project" aria-label="Project plan"></textarea></td></tr>
+          <tr><td>Community</td><td>How often does the cohort meet? Who facilitates?</td><td><textarea rows="2" data-save="ch12.a.community" aria-label="Community plan"></textarea></td></tr>
+          <tr><td>Failure policy</td><td>How will you make honest failure safe and valued?</td><td><textarea rows="2" data-save="ch12.a.failure" aria-label="Failure policy plan"></textarea></td></tr>
+          <tr><td>Sharing</td><td>How will results reach the wider campus: showcase, story collection, workshop?</td><td><textarea rows="2" data-save="ch12.a.sharing" aria-label="Sharing plan"></textarea></td></tr>
+          <tr><td>Evaluation</td><td>What evidence will show impact on student learning?</td><td><textarea rows="2" data-save="ch12.a.eval" aria-label="Evaluation plan"></textarea></td></tr>
+        </tbody>
+      </table></div>
+      <p class="step"><span class="sn">Part B:</span>Annual campus AI summit.</p>
+      <div class="tbl-wrap"><table class="t">
+        <thead><tr><th>Element</th><th>Recommendation</th></tr></thead>
+        <tbody>
+          <tr><td>Timing</td><td>After classes end, when faculty have room to think</td></tr>
+          <tr><td>Audience</td><td>Faculty, staff, students, administrators, and community partners</td></tr>
+          <tr><td>Format</td><td>Short talks by faculty, hands-on workshops, a student panel, and structured cross-disciplinary table conversations</td></tr>
+          <tr><td>The seating rule</td><td>Assign tables to mix departments on purpose</td></tr>
+          <tr><td>Student voice</td><td>Always include students as speakers, not just attendees</td></tr>
+          <tr><td>Follow-through</td><td>Publish takeaways and launch at least one new initiative from each summit</td></tr>
+        </tbody>
+      </table></div>
+      <div class="figure" style="background:var(--card)">
+        <div class="fig-t">The seating rule, simulated <span class="try-it">shuffle the tables</span></div>
+        <div id="seating" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px"></div>
+        <div class="ctrls" style="margin-top:12px"><button class="btn small" type="button" data-seat="dept">Seat by department</button><button class="btn small solid" type="button" data-seat="mix">Apply the seating rule</button><span class="mono" id="seat-score" style="font-size:12px;color:var(--ink-2)"></span></div>
+      </div>
+      <p class="step"><span class="sn">Part C:</span>Year-one timeline.</p>
+      <ol class="timeline">
+        <li><b>Months 1–2</b>Form a planning team and secure institutional sponsorship</li>
+        <li><b>Month 3</b>Recruit the first accelerator cohort</li>
+        <li><b>Months 4–8</b>Run the cohort and collect stories</li>
+        <li><b>Month 9</b>Host the first summit, with the cohort as presenters</li>
+        <li><b>Months 10–12</b>Publish results, recruit cohort two, and plan the next summit</li>
+      </ol>
+      <div class="ws-actions"><button class="btn small" type="button" data-copy-tool>Copy my template</button><button class="btn small" type="button" data-clear-tool style="border-style:dashed">Clear</button></div>
+    </div>
+  </div>
+
+  <div class="part" data-part="terms">
+    <div class="part-label"><h3>Key Terms</h3></div>
+    <dl class="terms">
+      <div><dt>Accelerator</dt><dd>a structured program that supports faculty in experimenting with new teaching approaches.</dd></div>
+      <div><dt>Ecosystem</dt><dd>a set of connected initiatives that reinforce one another.</dd></div>
+      <div><dt>Permission to fail</dt><dd>institutional support for honest experimentation.</dd></div>
+    </dl>
+  </div>
+  <div class="part" data-part="questions">
+    <div class="part-label"><h3>Questions for Discussion</h3></div>
+    <ol class="qs" data-ch="12">
+      <li>What conversations at your institution would never happen without a shared physical space?</li>
+      <li>Which piece of the UNC Charlotte ecosystem would be easiest to start at your institution? Which would be hardest?</li>
+      <li>How should students be involved in designing faculty development around AI?</li>
+    </ol>
+  </div>
+  <div class="part" data-part="try">
+    <div class="try" data-ch="12"><div class="part-label" style="margin-bottom:8px"><h3>Try This</h3></div>
+      <p>Organize a 90-minute "mini-summit" in your department or student organization. Use the seating rule, ask each table to share one assignment or task AI has changed, and collect one shared idea from every table.</p></div>
+  </div>
+</article>

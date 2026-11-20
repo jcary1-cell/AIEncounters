@@ -1,0 +1,383 @@
+<!-- ===================== ACT II ===================== -->
+<section class="act" id="act2" data-title="Act II: The Cognitive Sanctuary" data-act="2">
+  <div class="act-card">
+    <span class="roman" aria-hidden="true">II</span>
+    <p class="eyebrow">Act II</p>
+    <h2>The Cognitive Sanctuary</h2>
+    <p class="tag">Thinking, Fluency, and Deep Inquiry</p>
+    <p>If Act I asked what AI is doing to us, Act II asks what we can do with it, on our own terms. A sanctuary is a protected space. Here, it means the inner room where real thinking happens.</p>
+    <p>Chapter 4 shows how to turn AI from an answer machine into an opponent that sharpens your arguments. Chapter 5 opens the hood, explaining how large language models actually work so you can use them with clear eyes. Chapter 6 reveals that every model carries the history, and the biases, of the data it was built from.</p>
+    <p>By the end of Act II, you will be able to think with AI without handing your thinking to it.</p>
+    <div class="ch-links"><a href="#ch4">4 · The Sparring Partner</a><a href="#ch5">5 · Unmasking the Oracle</a><a href="#ch6">6 · Reading the Hidden Code</a></div>
+  </div>
+</section>
+
+<!-- ===================== CHAPTER 4 ===================== -->
+<article class="chapter" id="ch4" data-ch="4" data-title="Chapter 4: The Sparring Partner">
+  <header class="ch-head">
+    <span class="num" aria-hidden="true">4</span>
+    <span class="kick">Chapter 4 · Act II</span>
+    <h2>The Sparring Partner</h2>
+    <span class="subt">Dialectical Thinking and the Refusal of the Easy Answer</span>
+  </header>
+  <div class="will"><b>In this chapter you will:</b><ul><li>learn why AI tends to agree with you</li><li>meet Ben Shneiderman's idea that more automation can mean more human control</li><li>use the Dialectical Sparring Protocol to make AI argue with you instead of flattering you.</li></ul></div>
+
+  <div class="part" data-part="encounter">
+    <div class="part-label"><span class="pn">i.</span><h3>The Encounter</h3><span class="tm">5 minutes</span></div>
+    <div class="encounter" data-ch="4">
+      <p>Aisha, a history major, is researching labor movements in the nineteenth century. She types her question into a search engine and gets a tidy AI summary: three paragraphs, neutral in tone, with a confident conclusion.</p>
+      <p>Something about it bothers her. It reads like it was written by nobody, from nowhere.</p>
+      <p>So she tries something different. She tells the AI: <span class="thought">You are a mill owner in Lowell, Massachusetts, in 1845. Defend your labor practices to me.</span> Then: <span class="thought">Now you are a mill girl writing for a workers' newspaper. Respond.</span> Then: <span class="thought">Now tell me what each of you is leaving out.</span></p>
+      <p>Over an hour, the conversation surfaces assumptions the summary had hidden: whose letters survived in the archive, whose did not, and which side the "neutral" summary had quietly adopted. Aisha's paper becomes about that gap.</p>
+    </div>
+  </div>
+
+  <div class="part inq" data-part="inquiry">
+    <div class="part-label"><span class="pn">ii.</span><h3>The Human-Centered Inquiry</h3><span class="tm">20–30 minutes</span></div>
+    <div class="prose">
+      <h4>The problem of the agreeable machine</h4>
+      <p>Many AI systems are trained in part on human feedback, and people tend to rate agreeable answers highly. The result is a well-documented tendency researchers call <strong>sycophancy</strong>: the model leans toward telling you what you seem to want to hear. Ask a leading question and you will often get a leading answer.</p>
+      <p>That makes AI a poor judge of your ideas by default. It also makes it a potentially excellent sparring partner, if you set the rules.</p>
+      <h4>Human-Centered AI: not a zero-sum slider</h4>
+      <p>The computer scientist Ben Shneiderman, a founder of the field of human-computer interaction, has argued for what he calls <strong>Human-Centered AI (HCAI)</strong>. A common assumption holds that more machine autonomy means less human control, like a single slider. Shneiderman proposed instead that these are two separate dimensions.</p>
+    </div>
+    <div class="figure" id="hcai-fig">
+      <div class="fig-t">Two dimensions, not one slider <span class="try-it">move both sliders</span></div>
+      <div class="quad">
+        <span></span><span class="axl">Low human control</span><span class="axl">High human control</span>
+        <span class="axl v">High automation</span>
+        <div class="cell" data-q="hl" data-ax="high automation · low human control"><b>Risky:</b> the system acts on its own, and people cannot steer or correct it</div>
+        <div class="cell goal" data-q="hh" data-ax="high automation · high human control"><b>The HCAI goal:</b> powerful systems that people can understand, direct, and override</div>
+        <span class="axl v">Low automation</span>
+        <div class="cell" data-q="ll" data-ax="low automation · low human control">Neglected or simple tools</div>
+        <div class="cell" data-q="lh" data-ax="low automation · high human control">Traditional manual work, with full control and limited power</div>
+      </div>
+      <div class="sliders">
+        <label for="hc-auto">Automation (machine capability) <input type="range" id="hc-auto" min="0" max="100" value="80"></label>
+        <label for="hc-ctrl">Human control <input type="range" id="hc-ctrl" min="0" max="100" value="85"></label>
+      </div>
+    </div>
+    <div class="prose">
+      <p>The aim is the upper-right corner: high capability <em>and</em> high human control. Aisha's approach lives there. She used a powerful system, but she designed the conversation, chose the roles, and judged the results.</p>
+      <h4>Dialectic: thinking through opposition</h4>
+      <p><strong>Dialectic</strong> is one of the oldest methods of thought. In Plato's dialogues, Socrates rarely gives answers. He asks questions until hidden assumptions crack open. Later philosophers described a pattern of a claim (thesis), a challenge (antithesis), and a new understanding that absorbs both (synthesis).</p>
+      <p>AI is surprisingly good at playing the role of opponent, because it can generate many perspectives quickly. What it cannot do is decide which perspective is right, or care about the answer. That remains your job.</p>
+      <h4>From prompt engineering to inquiry design</h4>
+      <p>Early advice about AI focused on "prompt engineering": clever phrasing to get better outputs. This chapter suggests a shift toward <strong>inquiry design</strong>. The question is not <em>how do I get the best answer?</em> but <em>how do I set up a conversation that makes my thinking better?</em></p>
+    </div>
+  </div>
+
+  <div class="part" data-part="competency">
+    <div class="part-label"><span class="pn">iii.</span><h3>The Core Competency: Critical Thinking</h3><span class="tm">5 minutes</span></div>
+    <div class="competency prose">
+      <span class="badge">Core competency · Critical Thinking</span>
+      <p>In this chapter, <strong>critical thinking means gathering diverse evidence, anticipating consequences, interpreting complex information, and detecting bias, both in the machine and in yourself.</strong> The sparring method trains all four. It forces you to see the strongest version of the view you reject.</p>
+    </div>
+  </div>
+
+  <div class="part tool" data-part="tool" id="ch4-tool">
+    <div class="part-label"><span class="pn">iv.</span><h3>Signature Tool: The Dialectical Sparring Protocol</h3><span class="tm">30–60 minutes</span></div>
+    <div class="worksheet" data-tool="Dialectical Sparring Protocol" data-ch="4">
+      <div class="ws-head"><span class="stamp">Signature Tool</span><span class="saved" data-saved>autosaves in this browser</span></div>
+      <p>Use this four-step method whenever you have a draft argument, thesis, or decision.</p>
+      <p class="step"><span class="sn">1.</span>State your thesis plainly.</p>
+      <p>Write it in one sentence before involving AI. Example: "The 1912 Lawrence textile strike succeeded mainly because of national publicity."</p>
+      <label class="sr" for="sp-thesis">My thesis</label><textarea id="sp-thesis" data-save="ch4.thesis" rows="2" placeholder="my thesis, in one sentence…"></textarea>
+      <p class="step"><span class="sn">2.</span>Assign an opponent.</p>
+      <p>Ask the AI to argue against you from a specific, named perspective. "Argue as a labor historian who believes worker organization, not publicity, was decisive. Be specific and don't soften your view."</p>
+      <label class="sr" for="sp-opp">Opponent's perspective</label><input type="text" id="sp-opp" data-save="ch4.opponent" placeholder="the opponent: e.g. a labor historian who believes…">
+      <p class="step"><span class="sn">3.</span>Interrogate the premises.</p>
+      <p>Ask: "What assumptions does my thesis rely on? Which is weakest? What evidence would prove me wrong?" Then ask the same about the opponent's argument.</p>
+      <p class="step"><span class="sn">4.</span>Synthesize, then verify.</p>
+      <p>Write a revised thesis yourself, in your own words. Check every factual claim the AI made against a real source, since AI can state false things confidently.</p>
+      <div class="figure" style="background:var(--card)">
+        <div class="fig-t">Your sparring prompts, built from your thesis <span class="try-it">copy into any AI tool</span></div>
+        <div id="sp-prompts" class="mono" style="font-size:13.5px;line-height:1.6;display:flex;flex-direction:column;gap:10px"></div>
+      </div>
+      <p><strong>Sparring log.</strong> Keep a record so you can see your thinking evolve.</p>
+      <div class="tbl-wrap"><table class="t">
+        <thead><tr><th>Round</th><th>My claim</th><th>Strongest counter</th><th>Hidden premise exposed</th><th>What I changed</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td><textarea rows="2" data-save="ch4.log.1.claim" aria-label="Round 1 claim"></textarea></td><td><textarea rows="2" data-save="ch4.log.1.counter" aria-label="Round 1 counter"></textarea></td><td><textarea rows="2" data-save="ch4.log.1.premise" aria-label="Round 1 premise"></textarea></td><td><textarea rows="2" data-save="ch4.log.1.changed" aria-label="Round 1 changed"></textarea></td></tr>
+          <tr><td>2</td><td><textarea rows="2" data-save="ch4.log.2.claim" aria-label="Round 2 claim"></textarea></td><td><textarea rows="2" data-save="ch4.log.2.counter" aria-label="Round 2 counter"></textarea></td><td><textarea rows="2" data-save="ch4.log.2.premise" aria-label="Round 2 premise"></textarea></td><td><textarea rows="2" data-save="ch4.log.2.changed" aria-label="Round 2 changed"></textarea></td></tr>
+          <tr><td>3</td><td><textarea rows="2" data-save="ch4.log.3.claim" aria-label="Round 3 claim"></textarea></td><td><textarea rows="2" data-save="ch4.log.3.counter" aria-label="Round 3 counter"></textarea></td><td><textarea rows="2" data-save="ch4.log.3.premise" aria-label="Round 3 premise"></textarea></td><td><textarea rows="2" data-save="ch4.log.3.changed" aria-label="Round 3 changed"></textarea></td></tr>
+        </tbody>
+      </table></div>
+      <div class="rules-ring"><b>Rules of the ring:</b> Never ask the AI "Is my argument good?" Ask "What is the strongest objection to my argument?" Never accept a fact you have not checked.</div>
+      <div class="ws-actions"><button class="btn small" type="button" data-copy-tool>Copy my sparring log</button><button class="btn small" type="button" data-clear-tool style="border-style:dashed">Clear</button></div>
+    </div>
+  </div>
+
+  <div class="part" data-part="terms">
+    <div class="part-label"><h3>Key Terms</h3></div>
+    <dl class="terms">
+      <div><dt>Sycophancy</dt><dd>an AI's tendency to agree with or flatter the user.</dd></div>
+      <div><dt>Human-Centered AI (HCAI)</dt><dd>Shneiderman's framework pairing high automation with high human control.</dd></div>
+      <div><dt>Dialectic</dt><dd>reasoning through structured opposition toward a better understanding.</dd></div>
+      <div><dt>Inquiry design</dt><dd>structuring an AI conversation to improve your thinking rather than to extract an answer.</dd></div>
+    </dl>
+  </div>
+  <div class="part" data-part="questions">
+    <div class="part-label"><h3>Questions for Discussion</h3></div>
+    <ol class="qs" data-ch="4">
+      <li>Why might a "neutral" summary actually take a side? Find an example.</li>
+      <li>Is it ethical to have AI role-play historical people? What are the risks?</li>
+      <li>When has someone disagreeing with you made your thinking better?</li>
+    </ol>
+  </div>
+  <div class="part" data-part="try">
+    <div class="try" data-ch="4"><div class="part-label" style="margin-bottom:8px"><h3>Try This</h3></div>
+      <p>Take a position you hold strongly on a campus issue. Run three rounds of the Protocol. Then explain the opposing view to a classmate so well that they cannot tell which side you are on.</p></div>
+  </div>
+</article>
+
+<!-- ===================== CHAPTER 5 ===================== -->
+<article class="chapter" id="ch5" data-ch="5" data-title="Chapter 5: Unmasking the Oracle">
+  <header class="ch-head">
+    <span class="num" aria-hidden="true">5</span>
+    <span class="kick">Chapter 5 · Act II</span>
+    <h2>Unmasking the Oracle</h2>
+    <span class="subt">Algorithmic Fluency and the Art of Co-Design</span>
+  </header>
+  <div class="will"><b>In this chapter you will:</b><ul><li>learn in plain language how large language models work</li><li>understand why they "hallucinate"</li><li>use the Architectural Co-Design Canvas to put AI to work in a course or project while keeping humans in charge.</li></ul></div>
+
+  <div class="part" data-part="encounter">
+    <div class="part-label"><span class="pn">i.</span><h3>The Encounter</h3><span class="tm">5 minutes</span></div>
+    <div class="encounter" data-ch="5">
+      <p>Dr. Okafor teaches environmental science. For years, her students kept field notebooks: careful, handwritten records of water samples and bird counts at a creek near campus. When AI arrived, colleagues told her the notebooks were obsolete.</p>
+      <p>She disagreed. Working with Lena, an instructional designer, she kept the notebooks and added something new. Each week, an AI generates a climate scenario for the creek: projected rainfall, temperature, species shifts. The scenarios are deliberately imperfect. Some contain errors. Some ignore local conditions.</p>
+      <p>The students' job is to critique them, using their own field data as evidence. <span class="thought">The model says the heron population will grow. Our counts say otherwise. Why?</span></p>
+      <p>By midterm, the students understand both the creek and the machine better than any lecture could have taught them.</p>
+    </div>
+  </div>
+
+  <div class="part inq" data-part="inquiry">
+    <div class="part-label"><span class="pn">ii.</span><h3>The Human-Centered Inquiry</h3><span class="tm">20–30 minutes</span></div>
+    <div class="prose">
+      <h4>From prompt tricks to algorithmic fluency</h4>
+      <p>You do not need to be an engineer to use AI well. But you do need a basic mental model of what is happening inside. We call this <strong>algorithmic fluency</strong>: knowing enough about how a system works to predict where it will be strong, where it will fail, and why.</p>
+      <h4>How a large language model works, in five ideas</h4>
+      <ol>
+        <li><strong>It learned from text.</strong> A large language model (LLM) is trained on enormous amounts of writing, such as books, websites, and code. From this, it learns statistical patterns in how words and ideas tend to follow one another.</li>
+        <li><strong>It works in tokens.</strong> Text is broken into small pieces called tokens, often a word or part of a word. The model reads and writes token by token.</li>
+      </ol>
+    </div>
+    <div class="figure" id="tok-fig">
+      <div class="fig-t">Idea 2, in your hands <span class="try-it">type anything</span></div>
+      <label class="sr" for="tok-in">Text to split into tokens</label>
+      <input type="text" id="tok-in" class="field" style="font-family:var(--f-mono);font-size:16px;color:var(--ink)" value="The heron population will grow unpredictably.">
+      <div class="tokens" id="tok-out" aria-live="polite"></div>
+      <p class="mono" style="font-size:12px;color:var(--pencil);margin:0"><span id="tok-n">0</span> tokens · a simplified illustration; real tokenizers learn their pieces from data.</p>
+    </div>
+    <div class="prose">
+      <ol start="3">
+        <li><strong>It predicts what comes next.</strong> At each step, the model calculates a probability distribution over possible next tokens and picks one. Then it does it again, and again. A whole essay is built this way, one prediction at a time.</li>
+      </ol>
+    </div>
+    <div class="figure predict" id="pred-fig">
+      <div class="fig-t">Idea 3, in your hands <span class="try-it">press "next token" a few times</span></div>
+      <div class="ctx" id="pred-ctx" aria-live="polite"></div>
+      <div class="bars" id="pred-bars"></div>
+      <div class="ctrls">
+        <button class="btn small solid" type="button" id="pred-next">Next token →</button>
+        <button class="btn small" type="button" id="pred-reset">Start over</button>
+        <label class="mono" style="font-size:12px;display:flex;align-items:center;gap:8px" for="pred-temp">randomness <input type="range" id="pred-temp" min="0" max="100" value="45" style="width:120px"></label>
+      </div>
+      <p class="mono" style="font-size:12px;color:var(--pencil);margin:10px 0 0">A toy model with made-up probabilities. Notice it never checks the creek. It only knows what usually comes next.</p>
+    </div>
+    <div class="prose">
+      <ol start="4">
+        <li><strong>It has a limited working memory.</strong> The <strong>context window</strong> is the amount of text the model can consider at once: your prompt, any documents you provide, and the conversation so far. Information outside it is not "remembered" unless a system feeds it back in.</li>
+        <li><strong>It models discourse, not truth.</strong> The model is optimized to produce text that sounds like plausible human writing. Usually plausible and true overlap. Sometimes they do not.</li>
+      </ol>
+      <h4>Why hallucinations happen</h4>
+      <p>A <strong>hallucination</strong> is a confident, fluent statement that is false, such as a made-up citation, a wrong date, or an invented quotation. It happens because the model is predicting likely text, not checking facts against the world. If a fake citation looks like the kind of thing that usually appears in that spot, the model may produce it.</p>
+      <p>Newer systems reduce this problem by searching the web, citing sources, or checking their work. But the underlying lesson holds: <strong>fluency is not evidence.</strong></p>
+      <h4>AI does not "know"</h4>
+      <p>It is natural to say that an AI "knows" or "thinks." These words are convenient but misleading. A better description is that the model has learned a rich map of how humans talk about the world. That map is remarkably useful. It is also built entirely from the past, shaped by whose words were written down, and blind to anything it has not seen.</p>
+      <p>Dr. Okafor's students learned this directly. The model knew how people usually write about herons. It did not know <em>their</em> herons.</p>
+      <h4>Co-design: the human as architect</h4>
+      <p>The lesson for educators is not "ban AI" or "use AI everywhere." It is <strong>co-design</strong>: deliberately matching what a tool can do (its affordances) to what learners need to do. In Dr. Okafor's course, AI produced messy scenarios at scale, something she could never write herself each week. Students supplied what the AI lacked: local observation and judgment.</p>
+    </div>
+  </div>
+
+  <div class="part" data-part="competency">
+    <div class="part-label"><span class="pn">iii.</span><h3>The Core Competency: Technology</h3><span class="tm">5 minutes</span></div>
+    <div class="competency prose">
+      <span class="badge">Core competency · Technology</span>
+      <p><strong>This competency is about using technology ethically and effectively to accomplish tasks, while staying aware of each tool's limits.</strong> Employers do not just want people who can operate AI. They want people who know when its output should not be trusted.</p>
+    </div>
+  </div>
+
+  <div class="part tool" data-part="tool" id="ch5-tool">
+    <div class="part-label"><span class="pn">iv.</span><h3>Signature Tool: The Architectural Co-Design Canvas</h3><span class="tm">30–60 minutes</span></div>
+    <div class="worksheet" data-tool="Architectural Co-Design Canvas" data-ch="5">
+      <div class="ws-head"><span class="stamp">Signature Tool</span><span class="saved" data-saved>autosaves in this browser</span></div>
+      <p>Use this canvas to plan any AI-supported assignment, lesson, or project.</p>
+      <p class="step"><span class="sn">Part A:</span>Start with the learning, not the tool.</p>
+      <div class="tbl-wrap"><table class="t plain">
+        <thead><tr><th>Question</th><th>Your answer</th></tr></thead>
+        <tbody>
+          <tr><td>What should learners be able to do by the end?</td><td><textarea rows="2" data-save="ch5.a1" aria-label="What should learners be able to do"></textarea></td></tr>
+          <tr><td>Which parts of that require human judgment, experience, or presence?</td><td><textarea rows="2" data-save="ch5.a2" aria-label="Which parts require human judgment"></textarea></td></tr>
+          <tr><td>What evidence will show they have learned it?</td><td><textarea rows="2" data-save="ch5.a3" aria-label="What evidence"></textarea></td></tr>
+        </tbody>
+      </table></div>
+      <p class="step"><span class="sn">Part B:</span>Map the affordances.</p>
+      <div class="tbl-wrap"><table class="t plain">
+        <thead><tr><th>What AI does well here</th><th>What AI does poorly here</th><th>What humans must supply</th></tr></thead>
+        <tbody>
+          <tr><td class="ex">e.g., generates many varied examples quickly</td><td class="ex">e.g., local, recent, or unwritten knowledge</td><td class="ex">e.g., field observation, lived experience</td></tr>
+          <tr><td><textarea rows="3" data-save="ch5.b.well" aria-label="What AI does well"></textarea></td><td><textarea rows="3" data-save="ch5.b.poor" aria-label="What AI does poorly"></textarea></td><td><textarea rows="3" data-save="ch5.b.human" aria-label="What humans must supply"></textarea></td></tr>
+        </tbody>
+      </table></div>
+      <p class="step"><span class="sn">Part C:</span>Design the interaction.</p>
+      <ul class="dots prose" style="max-width:none">
+        <li><strong>Where does AI enter?</strong> (Brainstorming, generating cases, critiquing drafts, simulating a perspective)<textarea rows="2" data-save="ch5.c1" aria-label="Where does AI enter"></textarea></li>
+        <li><strong>Where must it be absent?</strong> (The core skill being assessed)<textarea rows="2" data-save="ch5.c2" aria-label="Where must it be absent"></textarea></li>
+        <li><strong>How will learners check its output?</strong><textarea rows="2" data-save="ch5.c3" aria-label="How will learners check"></textarea></li>
+        <li><strong>How will they show their own reasoning?</strong><textarea rows="2" data-save="ch5.c4" aria-label="How will they show reasoning"></textarea></li>
+      </ul>
+      <div class="rules-ring"><b>Architect's check:</b> If you removed the AI tomorrow, would the learning goal still make sense? If yes, the human is still the architect.
+        <div style="margin-top:10px" data-seg="Yes, it still makes sense|Not yet" data-k="ch5.check" class="arch-check"></div></div>
+      <div class="ws-actions"><button class="btn small" type="button" data-copy-tool>Copy my canvas</button><button class="btn small" type="button" data-clear-tool style="border-style:dashed">Clear</button></div>
+    </div>
+  </div>
+
+  <div class="part" data-part="terms">
+    <div class="part-label"><h3>Key Terms</h3></div>
+    <dl class="terms">
+      <div><dt>Algorithmic fluency</dt><dd>a working understanding of how AI systems function and fail.</dd></div>
+      <div><dt>Token</dt><dd>a small unit of text that a language model reads and generates.</dd></div>
+      <div><dt>Context window</dt><dd>the amount of text a model can consider at one time.</dd></div>
+      <div><dt>Hallucination</dt><dd>a fluent but false output.</dd></div>
+      <div><dt>Affordance</dt><dd>what a tool makes easy or possible.</dd></div>
+    </dl>
+  </div>
+  <div class="part" data-part="questions">
+    <div class="part-label"><h3>Questions for Discussion</h3></div>
+    <ol class="qs" data-ch="5">
+      <li>If AI models how people talk about the world rather than the world itself, what kinds of topics are most at risk of distortion?</li>
+      <li>Dr. Okafor deliberately used flawed AI output. Why might imperfect material teach better than perfect material?</li>
+      <li>Explain how an LLM works to someone who has never used one, in under two minutes.</li>
+    </ol>
+  </div>
+  <div class="part" data-part="try">
+    <div class="try" data-ch="5"><div class="part-label" style="margin-bottom:8px"><h3>Try This</h3></div>
+      <p>Ask an AI system for five scholarly sources on a topic in your major, with full citations. Then verify each one in your library database. Record how many were real, partly real, or invented, and what that tells you about when to trust the tool.</p>
+      <div class="tbl-wrap" style="margin-bottom:0"><table class="t plain" id="cite-check"><thead><tr><th>#</th><th>Citation</th><th>What I found</th></tr></thead><tbody></tbody></table></div>
+      <p class="mono" id="cite-sum" style="font-size:12.5px;color:var(--ink-2);margin:10px 0 0"></p>
+    </div>
+  </div>
+</article>
+
+<!-- ===================== CHAPTER 6 ===================== -->
+<article class="chapter" id="ch6" data-ch="6" data-title="Chapter 6: Reading the Hidden Code">
+  <header class="ch-head">
+    <span class="num" aria-hidden="true">6</span>
+    <span class="kick">Chapter 6 · Act II</span>
+    <h2>Reading the Hidden Code</h2>
+    <span class="subt">Sociotechnical Hermeneutics Across Disciplines</span>
+  </header>
+  <div class="will"><b>In this chapter you will:</b><ul><li>see why technology is never neutral</li><li>learn how training data carries history's blind spots into the present</li><li>use the Algorithmic Provenance Audit to investigate any AI tool.</li></ul></div>
+
+  <div class="part" data-part="encounter">
+    <div class="part-label"><span class="pn">i.</span><h3>The Encounter</h3><span class="tm">5 minutes</span></div>
+    <div class="encounter" data-ch="6">
+      <p>Three students are paired for a class project: Marcus, a computer science major; Priya, who studies English literature; and Teresa, a sociology junior. Their assignment is to test a commercial AI hiring tool using sample resumes.</p>
+      <p>Marcus builds a spreadsheet of test cases. Priya notices something in the results first: resumes written with certain regional phrasing, or in African American English, keep scoring lower, even when the qualifications are identical. Teresa spots a second pattern. Applicants from regional state universities rank below applicants from flagship schools with the same GPA and experience.</p>
+      <p>No one programmed the tool to do this. It learned it.</p>
+      <p>Marcus could measure the bias. Priya could read the language that triggered it. Teresa could explain the social history that produced it. None of them could have found the whole story alone.</p>
+    </div>
+    <div class="figure" id="lens-fig">
+      <div class="fig-t">One problem, three disciplines <span class="try-it">add each lens</span></div>
+      <div class="lenses">
+        <button class="lens" type="button" aria-pressed="false" data-l="0"><span class="who">Marcus</span><span class="maj">Computer science</span><span class="saw">could measure the bias.</span></button>
+        <button class="lens" type="button" aria-pressed="false" data-l="1"><span class="who">Priya</span><span class="maj">English literature</span><span class="saw">could read the language that triggered it.</span></button>
+        <button class="lens" type="button" aria-pressed="false" data-l="2"><span class="who">Teresa</span><span class="maj">Sociology</span><span class="saw">could explain the social history that produced it.</span></button>
+      </div>
+      <div class="puzzle" aria-hidden="true"><i></i><i></i><i></i></div>
+      <p class="lens-out" id="lens-out" aria-live="polite">One lens sees a fragment.</p>
+    </div>
+  </div>
+
+  <div class="part inq" data-part="inquiry">
+    <div class="part-label"><span class="pn">ii.</span><h3>The Human-Centered Inquiry</h3><span class="tm">20–30 minutes</span></div>
+    <div class="prose">
+      <h4>Technology is never neutral</h4>
+      <p>In a famous 1980 essay, "Do Artifacts Have Politics?", the political theorist Langdon Winner argued that technologies can embody choices about power: who gets access, who is excluded, who decides. AI systems are artifacts in exactly this sense. They are built by particular people, for particular purposes, from particular data.</p>
+      <p>This is not a conspiracy theory. It is a description of how any designed thing works.</p>
+      <h4>How bias gets in</h4>
+      <p>A model learns patterns from its training data. If that data reflects past discrimination, the model will tend to reproduce it, often in ways no one intended and no one notices.</p>
+      <p>A widely reported real-world example: in 2018, Reuters reported that Amazon had abandoned an experimental recruiting tool after finding it penalized resumes containing the word "women's," as in "women's chess club." The system had learned from a decade of past hiring, in which most successful applicants were men.</p>
+      <p class="big-q">The Encounter above is fictional. That case was not.</p>
+      <h4>Critical lenses</h4>
+      <p>Several scholars have given us tools for seeing these patterns.</p>
+      <ul class="dots">
+        <li>Ruha Benjamin, in <em>Race After Technology</em> (2019), coined the term "the New Jim Code" to describe technologies that appear objective but reproduce racial hierarchies.</li>
+        <li>Catherine D'Ignazio and Lauren Klein, in <em>Data Feminism</em> (2020), ask who collects data, about whom, and for whose benefit. They urge us to examine power at every stage of the data pipeline.</li>
+        <li>The broader field of critical data studies treats datasets as human-made documents with authors, gaps, and agendas, not as raw truth.</li>
+      </ul>
+      <h4>Hermeneutics: the art of interpretation</h4>
+      <p><strong>Hermeneutics</strong> began as the study of how to interpret texts, from scripture to law. Its core insight is that meaning depends on context: who wrote this, when, for whom, and what did they leave out?</p>
+      <p><strong>Sociotechnical hermeneutics</strong> applies that same interpretive skill to technical systems. A training dataset is a kind of archive. Like any archive, it preserves some voices and silences others. Reading it well requires the skills of a humanist as much as an engineer.</p>
+      <h4>The hidden supply chain</h4>
+      <p>AI also depends on human labor that is rarely visible: writers whose work became training data, and data workers, often low-paid and located far from where the products are sold, who label content and review harmful material. Understanding a tool's provenance means seeing these people too.</p>
+    </div>
+  </div>
+
+  <div class="part" data-part="competency">
+    <div class="part-label"><span class="pn">iii.</span><h3>The Core Competency: Perspectives Across Disciplines</h3><span class="tm">5 minutes</span></div>
+    <div class="competency prose">
+      <span class="badge">Core competency · Perspectives Across Disciplines</span>
+      <p>The Encounter shows why this competency matters. No single discipline could have seen the whole problem. <strong>This competency is about combining technical, social, and humanistic insight to identify and remove barriers, and to question the power structures built into software.</strong></p>
+      <p class="note-box" style="margin-bottom:0"><strong>Note for instructors:</strong> This competency aligns closely with the Equity and Inclusion competency in many career-readiness frameworks.</p>
+    </div>
+  </div>
+
+  <div class="part tool" data-part="tool" id="ch6-tool">
+    <div class="part-label"><span class="pn">iv.</span><h3>Signature Tool: The Algorithmic Provenance Audit</h3><span class="tm">30–60 minutes</span></div>
+    <div class="worksheet" data-tool="Algorithmic Provenance Audit" data-ch="6">
+      <div class="ws-head"><span class="stamp">Signature Tool</span><span class="saved" data-saved>autosaves in this browser</span></div>
+      <p>Use this audit on any AI tool: a hiring system, a grading assistant, a recommendation feed, or a chatbot. Work in a team with at least two different majors if possible.</p>
+      <label class="sr" for="ch6-toolname">Tool being audited</label><input type="text" id="ch6-toolname" data-save="ch6.tool" placeholder="the tool we're auditing: ______________">
+      <div class="tbl-wrap"><table class="t">
+        <thead><tr><th>Audit area</th><th>Questions to ask</th><th>What we found</th><th>Evidence / source</th></tr></thead>
+        <tbody>
+          <tr><td>1. Origin</td><td>Who built this tool? For what purpose? Who pays for it?</td><td><textarea rows="2" data-save="ch6.origin.found" aria-label="Origin: what we found"></textarea></td><td><textarea rows="2" data-save="ch6.origin.ev" aria-label="Origin: evidence"></textarea></td></tr>
+          <tr><td>2. Training data</td><td>What data was it trained on? Is that disclosed? Whose voices, regions, and languages are likely over- or under-represented?</td><td><textarea rows="2" data-save="ch6.data.found" aria-label="Training data: found"></textarea></td><td><textarea rows="2" data-save="ch6.data.ev" aria-label="Training data: evidence"></textarea></td></tr>
+          <tr><td>3. Outputs</td><td>When we test it with varied inputs (names, dialects, schools, ages), do results differ?</td><td><textarea rows="2" data-save="ch6.out.found" aria-label="Outputs: found"></textarea></td><td><textarea rows="2" data-save="ch6.out.ev" aria-label="Outputs: evidence"></textarea></td></tr>
+          <tr><td>4. Ideological tilt</td><td>Does it frame issues from a particular point of view? What does it treat as "normal"?</td><td><textarea rows="2" data-save="ch6.tilt.found" aria-label="Tilt: found"></textarea></td><td><textarea rows="2" data-save="ch6.tilt.ev" aria-label="Tilt: evidence"></textarea></td></tr>
+          <tr><td>5. Labor</td><td>Whose work made this possible: writers, labelers, moderators? Were they credited or paid fairly?</td><td><textarea rows="2" data-save="ch6.labor.found" aria-label="Labor: found"></textarea></td><td><textarea rows="2" data-save="ch6.labor.ev" aria-label="Labor: evidence"></textarea></td></tr>
+          <tr><td>6. Accountability</td><td>If the tool harms someone, who is responsible? Can decisions be appealed?</td><td><textarea rows="2" data-save="ch6.acc.found" aria-label="Accountability: found"></textarea></td><td><textarea rows="2" data-save="ch6.acc.ev" aria-label="Accountability: evidence"></textarea></td></tr>
+        </tbody>
+      </table></div>
+      <p><strong>Verdict:</strong> Based on the audit, would you recommend this tool for your context? Adopt / Adopt with safeguards / Do not adopt. Explain in one paragraph.</p>
+      <div data-seg="Adopt|Adopt with safeguards|Do not adopt" data-k="ch6.verdict"></div>
+      <textarea rows="3" data-save="ch6.verdict.why" aria-label="Verdict explanation" placeholder="our reasoning…" style="margin-top:8px"></textarea>
+      <div class="ws-actions"><button class="btn small" type="button" data-copy-tool>Copy my audit</button><button class="btn small" type="button" data-clear-tool style="border-style:dashed">Clear</button></div>
+    </div>
+  </div>
+
+  <div class="part" data-part="terms">
+    <div class="part-label"><h3>Key Terms</h3></div>
+    <dl class="terms">
+      <div><dt>Training data</dt><dd>the material a model learns from.</dd></div>
+      <div><dt>The New Jim Code</dt><dd>Benjamin's term for technologies that encode racial bias behind a neutral appearance.</dd></div>
+      <div><dt>Hermeneutics</dt><dd>the practice of interpretation in context.</dd></div>
+      <div><dt>Provenance</dt><dd>the origin and history of a tool, including its data and labor.</dd></div>
+    </dl>
+  </div>
+  <div class="part" data-part="questions">
+    <div class="part-label"><h3>Questions for Discussion</h3></div>
+    <ol class="qs" data-ch="6">
+      <li>If no one intended the bias, who is responsible for it?</li>
+      <li>What did each student in the Encounter contribute that the others could not? What does that suggest about how teams should be built?</li>
+      <li>Can a dataset ever be truly neutral? Why or why not?</li>
+    </ol>
+  </div>
+  <div class="part" data-part="try">
+    <div class="try" data-ch="6"><div class="part-label" style="margin-bottom:8px"><h3>Try This</h3></div>
+      <p>Choose an AI tool your campus or workplace already uses. Complete the Provenance Audit using only publicly available information. Note every question you could not answer. The gaps are findings too.</p></div>
+  </div>
+</article>
